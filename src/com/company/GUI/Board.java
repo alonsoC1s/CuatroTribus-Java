@@ -14,7 +14,7 @@ public class Board extends JPanel{
 
     private Image imgBackground;
     private List<GuiPiece> visiblePieces = new ArrayList<>();
-    private BoardSquare[][] boardMatrix = new BoardSquare[5][5];
+    private BoardSquare[][] boardMatrix = new BoardSquare[6][6];
 
     /*
     Board main constructor. Called to create main game board, and to set up the initial game positions
@@ -62,6 +62,7 @@ public class Board extends JPanel{
         //Creating a white horse
         //FIXME: This is just for testing purposes.
         createAndAddPiece(Piece.colors.WHITE, Piece.types.HORSE, 2, true,1,1);
+        createAndAddPiece(Piece.colors.WHITE, Piece.types.HORSE, 3, true, 3,3);
 
     }
 
@@ -131,11 +132,18 @@ public class Board extends JPanel{
     /*
     Recieves a piece, and determines in which row / col it is, and changes its parameters to match
     & Adds the piece to the corresponding square´s list of pieces.
+    & Removes the piece from it´s previous square´s list of pieces.
      */
     public void parseXYCoords(GuiPiece piece){
         int x = piece.getxPos();
         int y = piece.getyPos();
 
+        //First, we check if the piece was already contained in another boardsquare. If so, remove from its list of pieces.
+        int prevCol = piece.getColumn();
+        int prevRow = piece.getRow();
+        boardMatrix[prevRow][prevCol].removePieceFromList(piece);
+
+        //Setting rows and columns based on the piece´s x,y coordinates.
         if (x > 0 && x < 100){
             piece.setColumn(0);
         } else if (x < 200){
@@ -164,7 +172,7 @@ public class Board extends JPanel{
             piece.setRow(5);
         }
 
-        //Adds the piece to BoardSquare´s piece list.
+        //Adds the piece to BoardSquare´s piece list
         boardMatrix[piece.getRow()][piece.getColumn()].addPieceToList(piece);
     }
 

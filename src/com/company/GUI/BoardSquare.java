@@ -19,7 +19,6 @@ public class BoardSquare {
         this.dominantColor = null;
     }
 
-    //FIXME: Remove piece from list when piece is moved to a different square.
     public void addPieceToList(GuiPiece newPiece){
         pieces.add(newPiece);
         System.out.println("I, square on column " + this.col + " and row " + this.row + " received new piece of type " );
@@ -27,7 +26,7 @@ public class BoardSquare {
 
     public void removePieceFromList(GuiPiece newPiece){
         pieces.remove(newPiece);
-        System.out.println("I, square on column " + this.col + " and row " + this.row + " removed new piece of type " );
+        System.out.println("I, square on column " + this.col + " and row " + this.row + " removed a piece" );
     }
 
 

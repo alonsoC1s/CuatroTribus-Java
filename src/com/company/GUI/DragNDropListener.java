@@ -70,6 +70,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
             int x = e.getPoint().x - this.xOffset;
             int y = e.getPoint().y - this.yOffset;
 
+            //Temporary x,y coordinates that serve animation puposes
             this.dragPiece.setxPos(x);
             this.dragPiece.setyPos(y);
             this.gameBoard.repaint();
