@@ -123,6 +123,10 @@ public class GuiPiece extends Piece {
     public void setColumn(int column) {
         this.column = column;
     }
+
+    public types getType(){ return this.pType; }
+
+    public colors getColor(){ return this.pColor; }
 }
 
 

@@ -12,16 +12,17 @@ import java.util.List;
 public class Board extends JPanel{
     private JFrame fram;
 
+    public Piece.colors colorInTurn;
     private Image imgBackground;
     private List<GuiPiece> visiblePieces = new ArrayList<>();
-    private BoardSquare[][] boardMatrix = new BoardSquare[6][6];
+    public BoardSquare[][] boardMatrix = new BoardSquare[6][6];
 
     /**
      * Board main constructor. Called to create main game board, and to set up the initial game positions
      */
     public Board(){
         //Create new Drag and Drop listener
-        DragNDropListener mouseListener = new DragNDropListener(visiblePieces,this);
+        DragNDropListener mouseListener = new DragNDropListener(this);
         this.addMouseListener(mouseListener);
         this.addMouseMotionListener(mouseListener);
 

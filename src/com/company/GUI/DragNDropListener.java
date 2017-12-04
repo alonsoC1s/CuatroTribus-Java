@@ -5,27 +5,30 @@ import com.company.Pieces.GuiPiece;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * TODO: Listen for clicks in BoardSquares insted of individual pieces. Make constructor request matrix of squares insted of list of pieces
  */
 public class DragNDropListener implements MouseMotionListener, MouseListener{
-    private List<GuiPiece> pieceList;
+    private BoardSquare[][] boardMatrix;
+    private BoardSquare clickedSquare;
     private Board gameBoard;
+    private List<GuiPiece> piecesOnSquare = new ArrayList<>();
 
+    //About to become obsolete
     private GuiPiece dragPiece;
     private int xOffset;
     private int yOffset;
 
     /**
      * Public constructor to set the game pieces & board accordingly
-     * @param pieces: List of pieces objects that are on play
      * @param board: Main board where game is happening
      */
-    public DragNDropListener(List<GuiPiece> pieces, Board board){
-        this.pieceList = pieces;
+    public DragNDropListener( Board board){
         this.gameBoard = board;
+        this.boardMatrix = this.gameBoard.boardMatrix;
     }
 
     /**
@@ -37,20 +40,27 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
         int clickX = e.getX();
         int clickY = e.getY();
 
-        /*
-        FIXME: For development purposes only. Fix by checking if click is on city ( or lone Piece) and open menu to
-        give access to available troops <=> the user has has control over the city.
-         */
+        //TODO: Check if the click is within board, or in staging area or reserves area
 
-        for(GuiPiece curPiece : pieceList){
-            if (mouseOverPiece(curPiece,clickX,clickY)){
-                this.xOffset = clickX - curPiece.getxPos();
-                this.yOffset = clickY - curPiece.getyPos();
-                this.dragPiece = curPiece;
-                break;
-
+        //Get the square that is being clicked
+        for(int row=0; row<6; row++){
+            for(int col=0; col<6; col++){
+                if (boardMatrix[row][col].isClicked(clickX,clickY)){
+                    this.clickedSquare = boardMatrix[row][col];
+                }
             }
         }
+
+        //Get a response from the clicked square
+        if (clickedSquare.dominantColor == gameBoard.colorInTurn) {
+            this.piecesOnSquare = clickedSquare.getPieces();
+        } else {
+            System.out.println("You have no power over this city");
+            return;
+        }
+
+        //Proceed to show a dialogue that shows pieces user can gather and move.
+
     }
 
     @Override
@@ -82,20 +92,6 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
             this.gameBoard.repaint();
         }
 
-    }
-
-    /**
-     * Function to check if user clicked over a piece
-     * @param guiPiece: Piece candidate to check if clicked
-     * @param x: X coord of mouse click
-     * @param y: Y coord of mouse click
-     * @return Bool. Whether or not guiPiece was clicked.
-     */
-    private boolean mouseOverPiece(GuiPiece guiPiece, int x, int y) {
-        return guiPiece.getxPos() <= x
-                && guiPiece.getxPos()+guiPiece.getIconWidth() >= x
-                && guiPiece.getyPos() <= y
-                && guiPiece.getyPos()+guiPiece.getIconHeight() >= y;
     }
 
 
