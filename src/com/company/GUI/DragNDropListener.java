@@ -47,6 +47,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
             for(int col=0; col<6; col++){
                 if (boardMatrix[row][col].isClicked(clickX,clickY)){
                     this.clickedSquare = boardMatrix[row][col];
+                    System.out.println("Square on " + this.clickedSquare.row + "," + this.clickedSquare.col + " was clicked");
                 }
             }
         }

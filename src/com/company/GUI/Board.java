@@ -9,6 +9,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//FixMe: Missing the turn switching functionality. Currently, white is the only playing color;
+
 public class Board extends JPanel{
     private JFrame fram;
 
@@ -38,9 +41,15 @@ public class Board extends JPanel{
     protected void paintComponent(Graphics g) {
         g.drawImage(this.imgBackground,0,0,null);
 
-        for (GuiPiece curPiece: visiblePieces){
-            g.drawImage(curPiece.getIcon(),curPiece.getxPos(),curPiece.getyPos(),null);
+        //Fixme: May or may not be a more efficient method of drawing. Try only drawing city and topmost piece.
+        for( int row=0; row<6 ;row++){
+            for (int col=0; col<6; col++){
+                for(GuiPiece piece: boardMatrix[row][col].getPieces()){
+                    g.drawImage(piece.getIcon(),piece.getxPos(),piece.getyPos(),null);
+                }
+            }
         }
+
     }
 
     /**
@@ -61,15 +70,11 @@ public class Board extends JPanel{
         fram.add(this);
         fram.setSize(imgBackground.getWidth(null),imgBackground.getHeight(null));
 
-        //Creating a white horse
-        //FIXME: This is just for testing purposes.
-        createAndAddPiece(Piece.colors.WHITE, Piece.types.HORSE, 2, true,1,1);
-        createAndAddPiece(Piece.colors.WHITE, Piece.types.HORSE, 3, true, 3,3);
 
     }
 
     /**
-     * Creates 36 new BoardSquare objects and places them on the board matrix.
+     * Creates 36 new BoardSquare objects and places them on the board matrix. Sets playing color to white
      */
     private void setupNewGame(){
         //Create 36 new boardsquares, and place them in the board matrix
@@ -78,6 +83,14 @@ public class Board extends JPanel{
                 boardMatrix[row][col] = new BoardSquare(row,col);
             }
         }
+
+        //Sets white as color in turn
+        this.colorInTurn = Piece.colors.WHITE;
+
+        //Creating a white horse
+        //FIXME: This is just for testing purposes.
+        createAndAddPiece(Piece.colors.WHITE, Piece.types.HORSE, 2, true,0,0);
+        createAndAddPiece(Piece.colors.WHITE, Piece.types.HORSE, 3, true, 3,3);
     }
 
     /**
@@ -93,7 +106,7 @@ public class Board extends JPanel{
         Image pieceIcon = getIconForPiece(color,type);
 
         GuiPiece newPiece = new GuiPiece(color,type,power,isDeployed,row,col,pieceIcon);
-        this.visiblePieces.add(newPiece);
+        this.boardMatrix[row][col].addPieceToList(newPiece);
 
         //Calling repaint to update screen
         fram.repaint();
