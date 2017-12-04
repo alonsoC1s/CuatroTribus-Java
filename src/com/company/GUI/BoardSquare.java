@@ -19,6 +19,7 @@ public class BoardSquare {
         this.dominantColor = null;
     }
 
+    //Fixme: Println just for development and testing purposes
     public void addPieceToList(GuiPiece newPiece){
         pieces.add(newPiece);
         System.out.println("I, square on column " + this.col + " and row " + this.row + " received new piece of type " );
@@ -28,6 +29,8 @@ public class BoardSquare {
         pieces.remove(newPiece);
         System.out.println("I, square on column " + this.col + " and row " + this.row + " removed a piece" );
     }
+
+    //ToDo: Write method to resolve battles or "collisions"
 
 
 }

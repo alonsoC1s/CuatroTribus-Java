@@ -7,6 +7,9 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.List;
 
+/**
+ * TODO: Listen for clicks in BoardSquares insted of individual pieces. Make constructor request matrix of squares insted of list of pieces
+ */
 public class DragNDropListener implements MouseMotionListener, MouseListener{
     private List<GuiPiece> pieceList;
     private Board gameBoard;
@@ -15,16 +18,19 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
     private int xOffset;
     private int yOffset;
 
-    /*
-    Public constructor to set the game pieces & board accordingly
+    /**
+     * Public constructor to set the game pieces & board accordingly
+     * @param pieces: List of pieces objects that are on play
+     * @param board: Main board where game is happening
      */
     public DragNDropListener(List<GuiPiece> pieces, Board board){
         this.pieceList = pieces;
         this.gameBoard = board;
     }
 
-    /*
-    Called when mouse clicked. Checks if click coordinates correspond to a piece, and sets it as active if so.
+    /**
+     * Called when mouse clicked. Checks if click coordinates correspond to a piece, and sets it as active if so.
+     * @param e: Mouse event
      */
     @Override
     public void mousePressed(MouseEvent e) {
@@ -78,8 +84,12 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
 
     }
 
-    /*
-    Function to check if user clicked over a piece
+    /**
+     * Function to check if user clicked over a piece
+     * @param guiPiece: Piece candidate to check if clicked
+     * @param x: X coord of mouse click
+     * @param y: Y coord of mouse click
+     * @return Bool. Whether or not guiPiece was clicked.
      */
     private boolean mouseOverPiece(GuiPiece guiPiece, int x, int y) {
         return guiPiece.getxPos() <= x

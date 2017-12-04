@@ -16,8 +16,8 @@ public class Board extends JPanel{
     private List<GuiPiece> visiblePieces = new ArrayList<>();
     private BoardSquare[][] boardMatrix = new BoardSquare[6][6];
 
-    /*
-    Board main constructor. Called to create main game board, and to set up the initial game positions
+    /**
+     * Board main constructor. Called to create main game board, and to set up the initial game positions
      */
     public Board(){
         //Create new Drag and Drop listener
@@ -29,8 +29,9 @@ public class Board extends JPanel{
         setupNewGame();
     }
 
-    /*
-    Method inherited from JFrame. Called when drawing new images or refreshing screen
+    /**
+     * Method inherited from JFrame. Called when drawing new images or refreshing screen
+     * @param g: Graphics, provided by Swing
      */
     @Override
     protected void paintComponent(Graphics g) {
@@ -41,8 +42,8 @@ public class Board extends JPanel{
         }
     }
 
-    /*
-    Method to initialize graphic components i.e background image
+    /**
+     * Method to initialize graphic components i.e background image
      */
     private void initGraphics(){
         this.setLayout(null);
@@ -66,8 +67,8 @@ public class Board extends JPanel{
 
     }
 
-    /*
-    Creates 36 new BoardSquare objects and places them on the board matrix.
+    /**
+     * Creates 36 new BoardSquare objects and places them on the board matrix.
      */
     private void setupNewGame(){
         //Create 36 new boardsquares, and place them in the board matrix
@@ -78,21 +79,30 @@ public class Board extends JPanel{
         }
     }
 
-    /*
-    Creates and paints a new piece based on parameters.
+    /**
+     * Creates and paints a new piece based on parameters.
+     * @param color: Enum declared in Pieces. Corresponds to each of 4 tribe colors
+     * @param type: Enum declared in Pieces. Corresponds to each of the 3 possible piece types
+     * @param power: Represents the numerical power a piece can have
+     * @param isDeployed: Bool. Represents if a piece is deployed on the board, or currently on the army reserves
+     * @param row: Initial row position
+     * @param col: Initial col position
      */
-    private void createAndAddPiece(Piece.colors color, Piece.types type, int power, boolean isDeployed, int x, int y) {
+    private void createAndAddPiece(Piece.colors color, Piece.types type, int power, boolean isDeployed, int row, int col) {
         Image pieceIcon = getIconForPiece(color,type);
 
-        GuiPiece newPiece = new GuiPiece(color,type,power,isDeployed,x,y,pieceIcon);
+        GuiPiece newPiece = new GuiPiece(color,type,power,isDeployed,row,col,pieceIcon);
         this.visiblePieces.add(newPiece);
 
         //Calling repaint to update screen
         fram.repaint();
     }
 
-    /*
-    Gets the icon for a specific piece using color and type, making use of naming conventions for icons
+    /**
+     *     Gets the icon for a specific piece using pieceColor and type, making use of naming conventions for icons
+     * @param pieceColor: Enum declared in Pieces. Corresponds to each of 4 tribe colors
+     * @param pieceType: Enum declared in Pieces. Corresponds to each of the 3 possible piece types
+     * @return Image object with the image obtained for the specified piece
      */
     private Image getIconForPiece(Piece.colors pieceColor, Piece.types pieceType){
         String pathName = "";
@@ -129,10 +139,11 @@ public class Board extends JPanel{
 
         }
 
-    /*
-    Recieves a piece, and determines in which row / col it is, and changes its parameters to match
-    & Adds the piece to the corresponding square´s list of pieces.
-    & Removes the piece from it´s previous square´s list of pieces.
+    /**
+     * Recieves a piece, and determines in which row / col it is, and changes its parameters to match
+     & Adds the piece to the corresponding square´s list of pieces.
+     & Removes the piece from it´s previous square´s list of pieces.
+     * @param piece: Piece object that is to be manipulated
      */
     public void parseXYCoords(GuiPiece piece){
         int x = piece.getxPos();
@@ -176,9 +187,10 @@ public class Board extends JPanel{
         boardMatrix[piece.getRow()][piece.getColumn()].addPieceToList(piece);
     }
 
-    /*
-    Checks row / col parameters of the piece, and centers it into the square
-    FIXME: Needs tweaking to center pieces correctly
+    /**
+     * Checks row / col parameters of the piece, and centers it into the square
+     * @param piece
+     * FIXME: Needs tweaking to center pieces correctly
      */
     public void centerPieceToSquare(GuiPiece piece){
         int pieceCol = piece.getColumn();
