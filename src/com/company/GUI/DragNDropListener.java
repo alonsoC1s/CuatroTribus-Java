@@ -8,9 +8,6 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * TODO: Listen for clicks in BoardSquares insted of individual pieces. Make constructor request matrix of squares insted of list of pieces
- */
 public class DragNDropListener implements MouseMotionListener, MouseListener{
     private BoardSquare[][] boardMatrix;
     private BoardSquare clickedSquare;

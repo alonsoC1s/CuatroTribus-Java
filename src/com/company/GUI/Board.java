@@ -113,9 +113,9 @@ public class Board extends JPanel{
     }
 
     /**
-     *     Gets the icon for a specific piece using pieceColor and type, making use of naming conventions for icons
+     * Gets the icon for a specific piece using pieceColor and type, making use of naming conventions for icons
      * @param pieceColor: Enum declared in Pieces. Corresponds to each of 4 tribe colors
-     * @param pieceType: Enum declared in Pieces. Corresponds to each of the 3 possible piece types
+     * @param pieceType: Enum declared in Pieces. Corresponds to each of the 3 possible piece types + city
      * @return Image object with the image obtained for the specified piece
      */
     private Image getIconForPiece(Piece.colors pieceColor, Piece.types pieceType){
@@ -145,6 +145,9 @@ public class Board extends JPanel{
                 break;
             case ARTILLERY:
                 pathName += "Artillery.png";
+                break;
+            case CITY:
+                pathName += "City.png";
                 break;
         }
 
@@ -253,6 +256,26 @@ public class Board extends JPanel{
         }
 
         System.out.println("I am in column " + pieceCol + " and row " + pieceRow);
+    }
+
+    /**
+     * Function to switch to next color´ turn. Fixme: Missing function to clear the dragPiece of mouse listener
+     */
+    public void nextTurn(){
+        switch (colorInTurn){
+            case WHITE:
+                this.colorInTurn = Piece.colors.RED;
+                break;
+            case RED:
+                this.colorInTurn = Piece.colors.BLUE;
+                break;
+            case BLUE:
+                this.colorInTurn = Piece.colors.GREEN;
+                break;
+            case GREEN:
+                this.colorInTurn = Piece.colors.WHITE;
+                break;
+        }
     }
 
 

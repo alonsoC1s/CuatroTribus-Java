@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BoardSquare {
+    //Dimension constants.
+    public static final int SQR_00_START = 0;
+    // ... blah blah blah ... //
+
     public List<GuiPiece> pieces = new ArrayList<>();
     public Piece.colors dominantColor; //This is to be determined by the color of the city in this square.
     public boolean hasCity;
@@ -32,6 +36,7 @@ public class BoardSquare {
         pieces.add(newPiece);
         System.out.println("I, square on column " + this.col + " and row " + this.row + " received new piece of type " );
 
+        this.resolveBattles();
         this.determineDominantColor();
     }
 
@@ -129,7 +134,7 @@ public class BoardSquare {
     }
 
     //ToDo: Write method to resolve battles or "collisions"
-    private void resolveCollisions(){
+    private void resolveBattles(){
         for( GuiPiece piece : this.pieces){
             if (piece.getColor() != this.dominantColor){
                 System.out.println("A battle has been detected at " + this.row + "," + this.col);
