@@ -1,6 +1,7 @@
 package com.company.GUI;
 
 import com.company.Pieces.GuiPiece;
+import javafx.scene.control.RadioButton;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -15,6 +16,9 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
     private BoardSquare clickedSquare;
     private Board gameBoard;
     private List<GuiPiece> piecesOnSquare = new ArrayList<>();
+    private List<GuiPiece> piecesOnTheMove = new ArrayList<>();
+
+    //Todo: Add state variable that knows when pieces are being mobilized. Modify methods accordingly
 
     private GuiPiece dragPiece;
     private int xOffset;
@@ -69,7 +73,16 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
             //Show the option pane
             JOptionPane.showMessageDialog(this.gameBoard,panel,"Select pieces to mobilize",JOptionPane.PLAIN_MESSAGE);
 
+            //Getting the boolean values of the radiobuttons, and adding corresponding pieces to list of pieces being dragged
+            for (JRadioButton button: pieceOption){
+                if (button.isSelected()){
+                    //Add the piece that is in the same index as the radio button
+                    piecesOnTheMove.add(this.piecesOnSquare.get(pieceOption.indexOf(button)));
+                }
+            }
 
+
+            //Todo: Cleanup all lists used.
 
         } else {
             System.out.println("You have no power over this city");
