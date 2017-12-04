@@ -2,9 +2,11 @@ package com.company.GUI;
 
 import com.company.Pieces.GuiPiece;
 
+import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,16 +54,22 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
         if (clickedSquare.dominantColor == gameBoard.colorInTurn) {
             this.piecesOnSquare = clickedSquare.getPieces();
 
-            /*Todo: Prompt a jPanel with radiobuttons that show the user the available troops to be selected, and options
+            //Creating panel to display options, and new list to contain radio buttons
             final JPanel panel = new JPanel();
-            final JRadioButton button1 = new JRadioButton("1");
-            final JRadioButton button2 = new JRadioButton("2");
+            List<JRadioButton> pieceOption = new ArrayList<>();
 
-            panel.add(button1);
-            panel.add(button2);
+            //Create new list of radio buttons representing available pieces and adding them to the panel
+            for (GuiPiece piece: piecesOnSquare){
+                pieceOption.add(new JRadioButton(piece.toString()));
 
-            JOptionPane.showMessageDialog(null, panel);
-             */
+                //Adding the radiobutton to the panel
+                panel.add(pieceOption.get(piecesOnSquare.indexOf(piece)));
+            }
+
+            //Show the option pane
+            JOptionPane.showMessageDialog(this.gameBoard,panel,"Select pieces to mobilize",JOptionPane.PLAIN_MESSAGE);
+
+
 
         } else {
             System.out.println("You have no power over this city");

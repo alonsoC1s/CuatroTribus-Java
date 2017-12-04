@@ -80,6 +80,11 @@ public class GuiPiece extends Piece {
         }
     }
 
+    @Override
+    public String toString() {
+        return (  this.pColor.toString() + " " + this.pType.toString() + " with power " + this.pPower  );
+    }
+
     public Image getIcon() {
         return icon;
     }
