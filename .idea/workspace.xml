@@ -7,13 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="081e717f-4ffa-419c-aa15-9809bf98f6f9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/GUI/Board$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/GUI/Board.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/GUI/BoardSquare.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/GUI/DragNDropListener.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/GUI/Board.java" afterPath="$PROJECT_DIR$/src/com/company/GUI/Board.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java" afterPath="$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java" afterPath="$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Main.java" afterPath="$PROJECT_DIR$/src/com/company/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Pieces/GuiPiece.java" afterPath="$PROJECT_DIR$/src/com/company/Pieces/GuiPiece.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,26 +29,24 @@
     <fileColor scope="Non-Project Files (Material Palenight)" color="2f2e43" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="216">
+              <caret line="9" column="82" lean-forward="false" selection-start-line="9" selection-start-column="82" selection-end-line="9" selection-end-column="82" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/GUI/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="258" column="5" lean-forward="true" selection-start-line="258" selection-start-column="5" selection-end-line="258" selection-end-column="5" />
+            <state relative-caret-position="184">
+              <caret line="163" column="95" lean-forward="false" selection-start-line="163" selection-start-column="95" selection-end-line="163" selection-end-column="95" />
               <folding>
-                <element signature="method#createAndAddPiece#0;class#Board#0" expanded="false" />
                 <element signature="method#getIconForPiece#0;class#Board#0" expanded="false" />
-                <element signature="method#parseXYCoords#0;class#Board#0" expanded="false" />
                 <element signature="method#centerPieceToSquare#0;class#Board#0" expanded="false" />
                 <element signature="method#nextTurn#0;class#Board#0" expanded="false" />
               </folding>
@@ -57,35 +54,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/images/Board.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BoardSquare.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="652">
+              <caret line="59" column="38" lean-forward="true" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#removePieceFromList#0;class#BoardSquare#0" expanded="false" />
                 <element signature="method#determineDominantColor#0;class#BoardSquare#0" expanded="false" />
                 <element signature="method#isClicked#0;class#BoardSquare#0" expanded="false" />
                 <element signature="method#setXY#0;class#BoardSquare#0" expanded="false" />
-                <element signature="method#resolveBattles#0;class#BoardSquare#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DragNDropListener.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DragNDropListener.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10">
-              <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+            <state relative-caret-position="480">
+              <caret line="53" column="35" lean-forward="false" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
               <folding>
                 <element signature="method#mouseMoved#0;class#DragNDropListener#0" expanded="false" />
                 <element signature="method#mouseClicked#0;class#DragNDropListener#0" expanded="false" />
@@ -99,8 +87,8 @@
       <file leaf-file-name="GuiPiece.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Pieces/GuiPiece.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="128" column="50" lean-forward="false" selection-start-line="128" selection-start-column="50" selection-end-line="128" selection-end-column="50" />
+            <state relative-caret-position="471">
+              <caret line="33" column="52" lean-forward="true" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#centerPieceToSquare#0;class#GuiPiece#0" expanded="false" />
@@ -112,8 +100,8 @@
       <file leaf-file-name="Piece.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Pieces/Piece.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+            <state relative-caret-position="480">
+              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -146,12 +134,12 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/company/Pieces/DragAndDropListener.java" />
         <option value="$PROJECT_DIR$/src/com/company/GUI/BoardColumn.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Main.java" />
         <option value="$PROJECT_DIR$/src/com/company/Pieces/Piece.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Pieces/GuiPiece.java" />
         <option value="$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java" />
-        <option value="$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java" />
         <option value="$PROJECT_DIR$/src/com/company/GUI/Board.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Pieces/GuiPiece.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java" />
       </list>
     </option>
   </component>
@@ -198,7 +186,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -243,6 +230,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
@@ -354,7 +342,8 @@
       <workItem from="1512237681612" duration="3188000" />
       <workItem from="1512241220290" duration="28000" />
       <workItem from="1512241332004" duration="2475000" />
-      <workItem from="1512349771637" duration="10270000" />
+      <workItem from="1512349771637" duration="10534000" />
+      <workItem from="1512365104654" duration="1867000" />
     </task>
     <task id="LOCAL-00001" summary="Created the piece creation and addition methods">
       <created>1512168072039</created>
@@ -374,7 +363,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25274000" />
+    <option name="totallyTimeSpent" value="27405000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -395,18 +384,17 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992327" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31723237" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31723237" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32767624" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12638889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3916449" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3916449" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -415,6 +403,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -460,27 +449,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java</url>
-          <line>43</line>
-          <properties />
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/company/Pieces/Piece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Pieces/GuiPiece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -524,9 +497,7 @@
         <state relative-caret-position="408">
           <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
-            <element signature="method#createAndAddPiece#0;class#Board#0" expanded="false" />
             <element signature="method#getIconForPiece#0;class#Board#0" expanded="false" />
-            <element signature="method#parseXYCoords#0;class#Board#0" expanded="false" />
             <element signature="method#centerPieceToSquare#0;class#Board#0" expanded="false" />
             <element signature="method#nextTurn#0;class#Board#0" expanded="false" />
           </folding>
@@ -546,9 +517,7 @@
         <state relative-caret-position="552">
           <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
           <folding>
-            <element signature="method#createAndAddPiece#0;class#Board#0" expanded="false" />
             <element signature="method#getIconForPiece#0;class#Board#0" expanded="false" />
-            <element signature="method#parseXYCoords#0;class#Board#0" expanded="false" />
             <element signature="method#centerPieceToSquare#0;class#Board#0" expanded="false" />
             <element signature="method#nextTurn#0;class#Board#0" expanded="false" />
           </folding>
@@ -619,9 +588,7 @@
         <state relative-caret-position="1368">
           <caret line="59" column="84" lean-forward="false" selection-start-line="59" selection-start-column="84" selection-end-line="59" selection-end-column="84" />
           <folding>
-            <element signature="method#createAndAddPiece#0;class#Board#0" expanded="false" />
             <element signature="method#getIconForPiece#0;class#Board#0" expanded="false" />
-            <element signature="method#parseXYCoords#0;class#Board#0" expanded="false" />
             <element signature="method#centerPieceToSquare#0;class#Board#0" expanded="false" />
             <element signature="method#nextTurn#0;class#Board#0" expanded="false" />
           </folding>
@@ -660,9 +627,7 @@
         <state relative-caret-position="391">
           <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
           <folding>
-            <element signature="method#createAndAddPiece#0;class#Board#0" expanded="false" />
             <element signature="method#getIconForPiece#0;class#Board#0" expanded="false" />
-            <element signature="method#parseXYCoords#0;class#Board#0" expanded="false" />
             <element signature="method#centerPieceToSquare#0;class#Board#0" expanded="false" />
             <element signature="method#nextTurn#0;class#Board#0" expanded="false" />
           </folding>
@@ -704,9 +669,7 @@
         <state relative-caret-position="437">
           <caret line="23" column="41" lean-forward="true" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
           <folding>
-            <element signature="method#createAndAddPiece#0;class#Board#0" expanded="false" />
             <element signature="method#getIconForPiece#0;class#Board#0" expanded="false" />
-            <element signature="method#parseXYCoords#0;class#Board#0" expanded="false" />
             <element signature="method#centerPieceToSquare#0;class#Board#0" expanded="false" />
             <element signature="method#nextTurn#0;class#Board#0" expanded="false" />
           </folding>
@@ -745,9 +708,7 @@
         <state relative-caret-position="408">
           <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
-            <element signature="method#createAndAddPiece#0;class#Board#0" expanded="false" />
             <element signature="method#getIconForPiece#0;class#Board#0" expanded="false" />
-            <element signature="method#parseXYCoords#0;class#Board#0" expanded="false" />
             <element signature="method#centerPieceToSquare#0;class#Board#0" expanded="false" />
             <element signature="method#nextTurn#0;class#Board#0" expanded="false" />
           </folding>
@@ -767,9 +728,7 @@
         <state relative-caret-position="552">
           <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
           <folding>
-            <element signature="method#createAndAddPiece#0;class#Board#0" expanded="false" />
             <element signature="method#getIconForPiece#0;class#Board#0" expanded="false" />
-            <element signature="method#parseXYCoords#0;class#Board#0" expanded="false" />
             <element signature="method#centerPieceToSquare#0;class#Board#0" expanded="false" />
             <element signature="method#nextTurn#0;class#Board#0" expanded="false" />
           </folding>
@@ -804,15 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -820,22 +770,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/images/Board.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Pieces/Piece.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        <state relative-caret-position="480">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Pieces/GuiPiece.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="128" column="50" lean-forward="false" selection-start-line="128" selection-start-column="50" selection-end-line="128" selection-end-column="50" />
+        <state relative-caret-position="471">
+          <caret line="33" column="52" lean-forward="true" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#centerPieceToSquare#0;class#GuiPiece#0" expanded="false" />
@@ -845,47 +806,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="652">
+          <caret line="59" column="38" lean-forward="true" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#removePieceFromList#0;class#BoardSquare#0" expanded="false" />
             <element signature="method#determineDominantColor#0;class#BoardSquare#0" expanded="false" />
             <element signature="method#isClicked#0;class#BoardSquare#0" expanded="false" />
             <element signature="method#setXY#0;class#BoardSquare#0" expanded="false" />
-            <element signature="method#resolveBattles#0;class#BoardSquare#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="82" lean-forward="false" selection-start-line="9" selection-start-column="82" selection-end-line="9" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/GUI/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="163" column="95" lean-forward="false" selection-start-line="163" selection-start-column="95" selection-end-line="163" selection-end-column="95" />
+          <folding>
+            <element signature="method#getIconForPiece#0;class#Board#0" expanded="false" />
+            <element signature="method#centerPieceToSquare#0;class#Board#0" expanded="false" />
+            <element signature="method#nextTurn#0;class#Board#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        <state relative-caret-position="480">
+          <caret line="53" column="35" lean-forward="false" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
           <folding>
             <element signature="method#mouseMoved#0;class#DragNDropListener#0" expanded="false" />
             <element signature="method#mouseClicked#0;class#DragNDropListener#0" expanded="false" />
             <element signature="method#mouseEntered#0;class#DragNDropListener#0" expanded="false" />
             <element signature="method#mouseExited#0;class#DragNDropListener#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/images/Board.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/GUI/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="258" column="5" lean-forward="true" selection-start-line="258" selection-start-column="5" selection-end-line="258" selection-end-column="5" />
-          <folding>
-            <element signature="method#createAndAddPiece#0;class#Board#0" expanded="false" />
-            <element signature="method#getIconForPiece#0;class#Board#0" expanded="false" />
-            <element signature="method#parseXYCoords#0;class#Board#0" expanded="false" />
-            <element signature="method#centerPieceToSquare#0;class#Board#0" expanded="false" />
-            <element signature="method#nextTurn#0;class#Board#0" expanded="false" />
           </folding>
         </state>
       </provider>

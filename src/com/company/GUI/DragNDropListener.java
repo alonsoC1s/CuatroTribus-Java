@@ -14,7 +14,6 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
     private Board gameBoard;
     private List<GuiPiece> piecesOnSquare = new ArrayList<>();
 
-    //About to become obsolete
     private GuiPiece dragPiece;
     private int xOffset;
     private int yOffset;
@@ -29,7 +28,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
     }
 
     /**
-     * Called when mouse clicked. Checks if click coordinates correspond to a piece, and sets it as active if so.
+     * Called when mouse clicked. Checks if click coordinates correspond to a square
      * @param e: Mouse event
      */
     @Override
@@ -39,7 +38,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
 
         //TODO: Check if the click is within board, or in staging area or reserves area
 
-        //Get the square that is being clicked
+        //Get the square that is being clicked by iterating through matrix
         for(int row=0; row<6; row++){
             for(int col=0; col<6; col++){
                 if (boardMatrix[row][col].isClicked(clickX,clickY)){
@@ -52,6 +51,18 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
         //Get a response from the clicked square
         if (clickedSquare.dominantColor == gameBoard.colorInTurn) {
             this.piecesOnSquare = clickedSquare.getPieces();
+
+            /*Todo: Prompt a jPanel with radiobuttons that show the user the available troops to be selected, and options
+            final JPanel panel = new JPanel();
+            final JRadioButton button1 = new JRadioButton("1");
+            final JRadioButton button2 = new JRadioButton("2");
+
+            panel.add(button1);
+            panel.add(button2);
+
+            JOptionPane.showMessageDialog(null, panel);
+             */
+
         } else {
             System.out.println("You have no power over this city");
             return;
@@ -61,6 +72,8 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
 
     }
 
+
+    //Fixme: Work needed on this method. Don´t move just pieces, move lists of pieces. i.e use gameplay equipped method
     @Override
     public void mouseReleased(MouseEvent e) {
         int clickX;

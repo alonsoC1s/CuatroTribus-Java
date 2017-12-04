@@ -32,15 +32,35 @@ public class BoardSquare {
     }
 
     //Fixme: Println just for development and testing purposes
-    public void addPieceToList(GuiPiece newPiece){
+
+    /**
+     * This method is used when first creating pieces and adding them to board
+     * IMPORTANT NOTE: THIS IS NOT TO BE USED WHILE MOVING PIECES DURING GAME. ONLY DURING SETUP
+     * @param newPiece: Piece that was created and needs to be added.
+     */
+    public void addPieceToSquare(GuiPiece newPiece){
         pieces.add(newPiece);
         System.out.println("I, square on column " + this.col + " and row " + this.row + " received new piece of type " );
 
-        this.resolveBattles();
         this.determineDominantColor();
     }
 
-    public void removePieceFromList(GuiPiece newPiece){
+    /**
+     * Method used during gameplay when different players movilze army
+     * NOTE: THIS IS THE CORRECT METHOD TO BE USED DURING GAMEPLAY AS IT IS EQUIPPED TO HANDLE COLLISIONS.
+     * @param newPieces: List of pieces that are being moved to this square
+     */
+    public void addPiecesToSquare(List<GuiPiece> newPieces, Piece.colors actingColor){
+        pieces.addAll(newPieces);
+
+        if (actingColor != this.dominantColor){
+            this.resolveBattles();
+        }
+
+        this.determineDominantColor();
+    }
+
+    public void removePieceFromSquare(GuiPiece newPiece){
         pieces.remove(newPiece);
         System.out.println("I, square on column " + this.col + " and row " + this.row + " removed a piece" );
 

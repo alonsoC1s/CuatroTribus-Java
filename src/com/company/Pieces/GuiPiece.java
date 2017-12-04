@@ -23,7 +23,7 @@ public class GuiPiece extends Piece {
         this.icon = icon;
 
         //TODO: Ask if piece is deployed. If not deployed render outside of board and put into reserves box
-        centerPieceToSquare();
+        this.centerPieceToSquare();
 
         this.iconHeight = icon.getHeight(null);
         this.iconWidth = icon.getWidth(null);

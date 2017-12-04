@@ -17,7 +17,7 @@ public class Board extends JPanel{
 
     public Piece.colors colorInTurn;
     private Image imgBackground;
-    private List<GuiPiece> visiblePieces = new ArrayList<>();
+    private List<GuiPiece> visiblePieces = new ArrayList<>(); // Obsolete
     public BoardSquare[][] boardMatrix = new BoardSquare[6][6];
 
     /**
@@ -106,7 +106,7 @@ public class Board extends JPanel{
         Image pieceIcon = getIconForPiece(color,type);
 
         GuiPiece newPiece = new GuiPiece(color,type,power,isDeployed,row,col,pieceIcon);
-        this.boardMatrix[row][col].addPieceToList(newPiece);
+        this.boardMatrix[row][col].addPieceToSquare(newPiece);
 
         //Calling repaint to update screen
         fram.repaint();
@@ -161,6 +161,7 @@ public class Board extends JPanel{
      & Adds the piece to the corresponding square´s list of pieces.
      & Removes the piece from it´s previous square´s list of pieces.
      * @param piece: Piece object that is to be manipulated
+     *  Fixme: Adapt to recieve lists of pieces instead of single units i.e use gameplay method
      */
     public void parseXYCoords(GuiPiece piece){
         int x = piece.getxPos();
@@ -169,7 +170,7 @@ public class Board extends JPanel{
         //First, we check if the piece was already contained in another boardsquare. If so, remove from its list of pieces.
         int prevCol = piece.getColumn();
         int prevRow = piece.getRow();
-        boardMatrix[prevRow][prevCol].removePieceFromList(piece);
+        boardMatrix[prevRow][prevCol].removePieceFromSquare(piece);
 
         //Setting rows and columns based on the piece´s x,y coordinates.
         if (x > 0 && x < 100){
@@ -201,7 +202,7 @@ public class Board extends JPanel{
         }
 
         //Adds the piece to BoardSquare´s piece list
-        boardMatrix[piece.getRow()][piece.getColumn()].addPieceToList(piece);
+        boardMatrix[piece.getRow()][piece.getColumn()].addPieceToSquare(piece);
     }
 
     /**
