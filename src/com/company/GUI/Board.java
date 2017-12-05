@@ -17,7 +17,6 @@ public class Board extends JPanel{
 
     public Piece.colors colorInTurn;
     private Image imgBackground;
-    private List<GuiPiece> visiblePieces = new ArrayList<>(); // Obsolete
     public BoardSquare[][] boardMatrix = new BoardSquare[6][6];
 
     /**

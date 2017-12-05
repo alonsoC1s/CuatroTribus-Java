@@ -1,7 +1,5 @@
 package com.company.Pieces;
 
-import com.company.GUI.Board;
-
 import java.awt.*;
 
 public class GuiPiece extends Piece {
@@ -80,6 +78,11 @@ public class GuiPiece extends Piece {
         }
     }
 
+    /**
+     * Sets row and col in one go, and centers it to the corresponding square by modifying x,y coordinates
+     * @param row:
+     * @param col:
+     */
     public void setRowCol(int row, int col){
         this.row = row;
         this.column = col;
@@ -91,6 +94,11 @@ public class GuiPiece extends Piece {
     public String toString() {
         return (  this.pColor.toString() + " " + this.pType.toString() + " with power " + this.pPower  );
     }
+
+
+    /*
+    Getters and Setters
+     */
 
     public Image getIcon() {
         return icon;
@@ -112,14 +120,6 @@ public class GuiPiece extends Piece {
 
     public void setyPos(int yPos) {
         this.yPos = yPos;
-    }
-
-    public int getIconHeight() {
-        return iconHeight;
-    }
-
-    public int getIconWidth() {
-        return iconWidth;
     }
 
     public int getRow() {

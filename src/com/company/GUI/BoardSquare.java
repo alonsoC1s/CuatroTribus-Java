@@ -31,8 +31,6 @@ public class BoardSquare {
         this.determineDominantColor();
     }
 
-    //Fixme: Println just for development and testing purposes
-
     /**
      * This method is used when first creating pieces and adding them to board
      * IMPORTANT NOTE: THIS IS NOT TO BE USED WHILE MOVING PIECES DURING GAME. ONLY DURING SETUP
@@ -165,7 +163,7 @@ public class BoardSquare {
         return pieces;
     }
 
-    //ToDo: Write method to resolve battles or "collisions"
+    //ToDo: Write method to resolve battles or "collisions". Complete in logic engine.
     private void resolveBattles(){
         for( GuiPiece piece : this.pieces){
             if (piece.getColor() != this.dominantColor){

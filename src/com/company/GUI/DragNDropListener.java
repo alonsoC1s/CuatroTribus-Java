@@ -18,12 +18,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
     private List<GuiPiece> piecesOnSquare = new ArrayList<>();
     private List<GuiPiece> piecesOnTheMove = new ArrayList<>();
 
-    //Todo: Add state variable that knows when pieces are being mobilized. Modify methods accordingly
     Boolean troopsAreBeingMobilized;
-
-    private GuiPiece dragPiece;
-    private int xOffset;
-    private int yOffset;
 
     /**
      * Public constructor to set the game pieces & board accordingly
@@ -36,7 +31,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
     }
 
     /**
-     * Called when mouse clicked. Checks if click coordinates correspond to a square
+     * Called when mouse clicked. Checks if click coordinates correspond to a square, and shows dialogue to mobilize if so
      * @param e: Mouse event
      */
     @Override
@@ -70,7 +65,6 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
                 JOptionPane.showMessageDialog(this.gameBoard,panel,"Select pieces to mobilize",JOptionPane.PLAIN_MESSAGE);
 
                 //Getting the boolean values of the radiobuttons, and adding corresponding pieces to list of pieces being dragged
-                //Fixme: Debug this section. Pieces are being dragged wether or not they were selected
                 for (JRadioButton button: pieceOption){
                     if (button.isSelected()){
                         //Add the piece that is in the same index as the radio button
@@ -96,25 +90,23 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
 
     }
 
-
-    //Fixme: Work needed on this method. Don´t move just pieces, move lists of pieces. i.e use gameplay equipped method
+    /**
+     * Called when mouse is being moved. Only acts if troopsAreBeingMobilized
+     * @param e: MouseEvent
+     */
     @Override
-    public void mouseReleased(MouseEvent e) {
-    }
+    public void mouseMoved(MouseEvent e) {
+        if (troopsAreBeingMobilized) {
 
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        if (this.dragPiece != null){
+            int x = e.getX();
+            int y = e.getY();
 
-            int x = e.getPoint().x - this.xOffset;
-            int y = e.getPoint().y - this.yOffset;
-
-            //Temporary x,y coordinates that serve animation puposes
-            this.dragPiece.setxPos(x);
-            this.dragPiece.setyPos(y);
-            this.gameBoard.repaint();
+            for (GuiPiece piece : piecesOnTheMove) {
+                piece.setxPos(x);
+                piece.setyPos(y);
+                this.gameBoard.repaint();
+            }
         }
-
     }
 
     /**
@@ -133,24 +125,10 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
         }
     }
 
-    @Override
-    public void mouseMoved(MouseEvent e) {
-        if (troopsAreBeingMobilized) {
-
-            int x = e.getX();
-            int y = e.getY();
-
-            for (GuiPiece piece : piecesOnTheMove) {
-                piece.setxPos(x);
-                piece.setyPos(y);
-                this.gameBoard.repaint();
-            }
-        }
-    }
 
     /*
-Unused functions. Implemented to fulfill interface.
- */
+    Unused functions. Implemented to fulfill interface.
+    */
     @Override
     public void mouseClicked(MouseEvent e) {
 
@@ -163,5 +141,12 @@ Unused functions. Implemented to fulfill interface.
     public void mouseExited(MouseEvent e) {
 
     }
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+    @Override
+    public void mouseDragged(MouseEvent e) {
+    }
+
 
 }
