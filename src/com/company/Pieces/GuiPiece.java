@@ -1,7 +1,5 @@
 package com.company.Pieces;
 
-import com.company.GUI.Board;
-
 import java.awt.*;
 
 public class GuiPiece extends Piece {
@@ -23,7 +21,7 @@ public class GuiPiece extends Piece {
         this.icon = icon;
 
         //TODO: Ask if piece is deployed. If not deployed render outside of board and put into reserves box
-        centerPieceToSquare();
+        this.centerPieceToSquare();
 
         this.iconHeight = icon.getHeight(null);
         this.iconWidth = icon.getWidth(null);
@@ -33,7 +31,7 @@ public class GuiPiece extends Piece {
     Checks row / col parameters of the piece, and centers it into the square
     FIXME: Needs tweaking to center pieces correctly
      */
-    private void centerPieceToSquare(){
+    public void centerPieceToSquare(){
         int pieceCol = this.column;
         int pieceRow = this.row;
 
@@ -80,6 +78,28 @@ public class GuiPiece extends Piece {
         }
     }
 
+    /**
+     * Sets row and col in one go, and centers it to the corresponding square by modifying x,y coordinates
+     * @param row:
+     * @param col:
+     */
+    public void setRowCol(int row, int col){
+        this.row = row;
+        this.column = col;
+
+        this.centerPieceToSquare();
+    }
+
+    @Override
+    public String toString() {
+        return (  this.pColor.toString() + " " + this.pType.toString() + " with power " + this.pPower  );
+    }
+
+
+    /*
+    Getters and Setters
+     */
+
     public Image getIcon() {
         return icon;
     }
@@ -90,6 +110,8 @@ public class GuiPiece extends Piece {
 
     public void setxPos(int xPos) {
         this.xPos = xPos;
+
+
     }
 
     public int getyPos() {
@@ -98,14 +120,6 @@ public class GuiPiece extends Piece {
 
     public void setyPos(int yPos) {
         this.yPos = yPos;
-    }
-
-    public int getIconHeight() {
-        return iconHeight;
-    }
-
-    public int getIconWidth() {
-        return iconWidth;
     }
 
     public int getRow() {
@@ -123,6 +137,10 @@ public class GuiPiece extends Piece {
     public void setColumn(int column) {
         this.column = column;
     }
+
+    public types getType(){ return this.pType; }
+
+    public colors getColor(){ return this.pColor; }
 }
 
 

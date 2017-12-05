@@ -1,5 +1,6 @@
 # CuatroTribus-Java
 
+<<<<<<< HEAD
 <h1> Work in progresss to digitalize board game "Cuatro Tribus" </h1>
 
 <h3> Things that "work" </h3> 
@@ -21,3 +22,14 @@
    <ul> 
     <li> Finding a way to let the user select which pieces to movilize while in turn during gameplay </li>
     </ul>
+=======
+<h3> This is a notepad. This is what im currently working on:  </h3>
+<ul> 
+    <li> Methods to enable the mobilization of troops on command 
+    when clicking a city  (DONE) </li>
+    <li> Development of a Logic Engine </li>
+    <li> Development of a Player class </li>
+    <li> Graphical improvements </li>  
+  </ul> 
+    
+>>>>>>> developmentB

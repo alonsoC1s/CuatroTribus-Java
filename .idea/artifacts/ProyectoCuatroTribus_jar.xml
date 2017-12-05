@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ProyectoCuatroTribus:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ProyectoCuatroTribus_jar</output-path>
+    <root id="archive" name="ProyectoCuatroTribus.jar">
+      <element id="module-output" name="ProyectoCuatroTribus" />
+    </root>
+  </artifact>
+</component>
