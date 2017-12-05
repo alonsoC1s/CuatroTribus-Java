@@ -33,7 +33,7 @@ public class GuiPiece extends Piece {
     Checks row / col parameters of the piece, and centers it into the square
     FIXME: Needs tweaking to center pieces correctly
      */
-    private void centerPieceToSquare(){
+    public void centerPieceToSquare(){
         int pieceCol = this.column;
         int pieceRow = this.row;
 
@@ -80,40 +80,11 @@ public class GuiPiece extends Piece {
         }
     }
 
-    private void centerPieceToRow(){
-        int x = this.xPos;
+    public void setRowCol(int row, int col){
+        this.row = row;
+        this.column = col;
 
-        if (x > 0 && x < 100){
-            this.row = 0;
-        } else if (x < 200){
-            this.row = 1;
-        }else if (x < 300){
-            this.row = 2;
-        }else if (x < 400){
-            this.row = 3;
-        }else if (x < 500){
-            this.row = 4;
-        }else if (x < 600){
-            this.row = 5;
-        }
-    }
-
-    private void centerPieceToColumn(){
-        int y = this.getyPos();
-
-        if (y > 0 && y < 100){
-            this.column = 0;
-        } else if (y < 200){
-            this.column = 1;
-        }else if (y < 300){
-            this.column = 2;
-        }else if (y < 400){
-            this.column = 3;
-        }else if (y < 500){
-            this.column = 4;
-        }else if (y < 600){
-            this.column = 5;
-        }
+        this.centerPieceToSquare();
     }
 
     @Override

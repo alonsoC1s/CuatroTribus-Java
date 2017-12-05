@@ -51,7 +51,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
         if (!troopsAreBeingMobilized){
 
             //Get a response from the clicked square
-            if (clickedSquare.dominantColor == gameBoard.colorInTurn) {
+            if (clickedSquare.dominantColor == gameBoard.colorInTurn && !clickedSquare.isEmpty()) {
                 this.piecesOnSquare = clickedSquare.getPieces();
 
                 //Creating panel to display options, and new list to contain radio buttons
@@ -70,6 +70,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
                 JOptionPane.showMessageDialog(this.gameBoard,panel,"Select pieces to mobilize",JOptionPane.PLAIN_MESSAGE);
 
                 //Getting the boolean values of the radiobuttons, and adding corresponding pieces to list of pieces being dragged
+                //Fixme: Debug this section. Pieces are being dragged wether or not they were selected
                 for (JRadioButton button: pieceOption){
                     if (button.isSelected()){
                         //Add the piece that is in the same index as the radio button
@@ -89,6 +90,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
         } else {
             this.clickedSquare.addPiecesToSquare(piecesOnTheMove, gameBoard.colorInTurn);
             this.troopsAreBeingMobilized = false;
+            gameBoard.repaint();
         }
 
 

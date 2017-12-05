@@ -52,6 +52,11 @@ public class BoardSquare {
      */
     public void addPiecesToSquare(List<GuiPiece> newPieces, Piece.colors actingColor){
         System.out.println("Some new pieces were added to square " + this.row + "," + this.col);
+
+        for (GuiPiece piece: newPieces){
+            piece.setRowCol(this.row,this.col);
+        }
+
         pieces.addAll(newPieces);
 
         if (actingColor != this.dominantColor && this.dominantColor != null){
@@ -59,6 +64,8 @@ public class BoardSquare {
         }
 
         this.determineDominantColor();
+
+
     }
 
     public void removePieceFromSquare(GuiPiece newPiece){
@@ -66,6 +73,10 @@ public class BoardSquare {
         System.out.println("I, square on column " + this.col + " and row " + this.row + " removed a piece" );
 
         this.determineDominantColor();
+    }
+
+    public boolean isEmpty(){
+        return this.pieces.isEmpty();
     }
 
     /**

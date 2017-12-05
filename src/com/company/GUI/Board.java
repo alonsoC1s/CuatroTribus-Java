@@ -91,6 +91,7 @@ public class Board extends JPanel{
         //FIXME: This is just for testing purposes.
         createAndAddPiece(Piece.colors.WHITE, Piece.types.HORSE, 2, true,0,0);
         createAndAddPiece(Piece.colors.WHITE, Piece.types.HORSE, 3, true, 3,3);
+        createAndAddPiece(Piece.colors.WHITE, Piece.types.HORSE, 4,true,3,3);
     }
 
     /**
