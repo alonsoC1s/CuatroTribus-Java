@@ -51,9 +51,10 @@ public class BoardSquare {
      * @param newPieces: List of pieces that are being moved to this square
      */
     public void addPiecesToSquare(List<GuiPiece> newPieces, Piece.colors actingColor){
+        System.out.println("Some new pieces were added to square " + this.row + "," + this.col);
         pieces.addAll(newPieces);
 
-        if (actingColor != this.dominantColor){
+        if (actingColor != this.dominantColor && this.dominantColor != null){
             this.resolveBattles();
         }
 

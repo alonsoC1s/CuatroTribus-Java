@@ -80,6 +80,42 @@ public class GuiPiece extends Piece {
         }
     }
 
+    private void centerPieceToRow(){
+        int x = this.xPos;
+
+        if (x > 0 && x < 100){
+            this.row = 0;
+        } else if (x < 200){
+            this.row = 1;
+        }else if (x < 300){
+            this.row = 2;
+        }else if (x < 400){
+            this.row = 3;
+        }else if (x < 500){
+            this.row = 4;
+        }else if (x < 600){
+            this.row = 5;
+        }
+    }
+
+    private void centerPieceToColumn(){
+        int y = this.getyPos();
+
+        if (y > 0 && y < 100){
+            this.column = 0;
+        } else if (y < 200){
+            this.column = 1;
+        }else if (y < 300){
+            this.column = 2;
+        }else if (y < 400){
+            this.column = 3;
+        }else if (y < 500){
+            this.column = 4;
+        }else if (y < 600){
+            this.column = 5;
+        }
+    }
+
     @Override
     public String toString() {
         return (  this.pColor.toString() + " " + this.pType.toString() + " with power " + this.pPower  );
@@ -95,6 +131,8 @@ public class GuiPiece extends Piece {
 
     public void setxPos(int xPos) {
         this.xPos = xPos;
+
+
     }
 
     public int getyPos() {

@@ -19,6 +19,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
     private List<GuiPiece> piecesOnTheMove = new ArrayList<>();
 
     //Todo: Add state variable that knows when pieces are being mobilized. Modify methods accordingly
+    Boolean troopsAreBeingMobilized;
 
     private GuiPiece dragPiece;
     private int xOffset;
@@ -31,6 +32,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
     public DragNDropListener( Board board){
         this.gameBoard = board;
         this.boardMatrix = this.gameBoard.boardMatrix;
+        this.troopsAreBeingMobilized = false;
     }
 
     /**
@@ -44,52 +46,51 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
 
         //TODO: Check if the click is within board, or in staging area or reserves area
 
-        //Get the square that is being clicked by iterating through matrix
-        for(int row=0; row<6; row++){
-            for(int col=0; col<6; col++){
-                if (boardMatrix[row][col].isClicked(clickX,clickY)){
-                    this.clickedSquare = boardMatrix[row][col];
-                    System.out.println("Square on " + this.clickedSquare.row + "," + this.clickedSquare.col + " was clicked");
+        this.getClickedSquare(clickX,clickY);
+
+        if (!troopsAreBeingMobilized){
+
+            //Get a response from the clicked square
+            if (clickedSquare.dominantColor == gameBoard.colorInTurn) {
+                this.piecesOnSquare = clickedSquare.getPieces();
+
+                //Creating panel to display options, and new list to contain radio buttons
+                final JPanel panel = new JPanel();
+                List<JRadioButton> pieceOption = new ArrayList<>();
+
+                //Create new list of radio buttons representing available pieces and adding them to the panel
+                for (GuiPiece piece: piecesOnSquare){
+                    pieceOption.add(new JRadioButton(piece.toString()));
+
+                    //Adding the radiobutton to the panel
+                    panel.add(pieceOption.get(piecesOnSquare.indexOf(piece)));
                 }
-            }
-        }
 
-        //Get a response from the clicked square
-        if (clickedSquare.dominantColor == gameBoard.colorInTurn) {
-            this.piecesOnSquare = clickedSquare.getPieces();
+                //Show the option pane
+                JOptionPane.showMessageDialog(this.gameBoard,panel,"Select pieces to mobilize",JOptionPane.PLAIN_MESSAGE);
 
-            //Creating panel to display options, and new list to contain radio buttons
-            final JPanel panel = new JPanel();
-            List<JRadioButton> pieceOption = new ArrayList<>();
-
-            //Create new list of radio buttons representing available pieces and adding them to the panel
-            for (GuiPiece piece: piecesOnSquare){
-                pieceOption.add(new JRadioButton(piece.toString()));
-
-                //Adding the radiobutton to the panel
-                panel.add(pieceOption.get(piecesOnSquare.indexOf(piece)));
-            }
-
-            //Show the option pane
-            JOptionPane.showMessageDialog(this.gameBoard,panel,"Select pieces to mobilize",JOptionPane.PLAIN_MESSAGE);
-
-            //Getting the boolean values of the radiobuttons, and adding corresponding pieces to list of pieces being dragged
-            for (JRadioButton button: pieceOption){
-                if (button.isSelected()){
-                    //Add the piece that is in the same index as the radio button
-                    piecesOnTheMove.add(this.piecesOnSquare.get(pieceOption.indexOf(button)));
+                //Getting the boolean values of the radiobuttons, and adding corresponding pieces to list of pieces being dragged
+                for (JRadioButton button: pieceOption){
+                    if (button.isSelected()){
+                        //Add the piece that is in the same index as the radio button
+                        piecesOnTheMove.add(this.piecesOnSquare.get(pieceOption.indexOf(button)));
+                    }
                 }
+
+                if(!piecesOnTheMove.isEmpty())
+                    troopsAreBeingMobilized = true;
+
+                //Todo: Cleanup all lists used.
+
+            } else {
+                System.out.println("You have no power over this city");
+                return;
             }
-
-
-            //Todo: Cleanup all lists used.
-
         } else {
-            System.out.println("You have no power over this city");
-            return;
+            this.clickedSquare.addPiecesToSquare(piecesOnTheMove, gameBoard.colorInTurn);
+            this.troopsAreBeingMobilized = false;
         }
 
-        //Proceed to show a dialogue that shows pieces user can gather and move.
 
     }
 
@@ -97,18 +98,6 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
     //Fixme: Work needed on this method. Don´t move just pieces, move lists of pieces. i.e use gameplay equipped method
     @Override
     public void mouseReleased(MouseEvent e) {
-        int clickX;
-        int clickY;
-
-        if ( this.dragPiece != null){
-            clickX = e.getPoint().x - this.xOffset;
-            clickY = e.getPoint().y - this.yOffset;
-
-            //Move piece to new Location
-            this.gameBoard.parseXYCoords(this.dragPiece);
-            this.gameBoard.centerPieceToSquare(this.dragPiece);
-            this.gameBoard.repaint();
-        }
     }
 
     @Override
@@ -126,14 +115,40 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
 
     }
 
-
-    /*
-    Unused functions. Implemented to fulfill interface.
+    /**
+     * Function to check what square was pressed by checking through matrix
+     * @param clickX: x coord of the click
+     * @param clickY: y coord of the click
      */
+    public void getClickedSquare(int clickX, int clickY){
+        for(int row=0; row<6; row++){
+            for(int col=0; col<6; col++){
+                if (boardMatrix[row][col].isClicked(clickX,clickY)){
+                    this.clickedSquare = boardMatrix[row][col];
+                    System.out.println("Square on " + this.clickedSquare.row + "," + this.clickedSquare.col + " was clicked");
+                }
+            }
+        }
+    }
+
     @Override
     public void mouseMoved(MouseEvent e) {
+        if (troopsAreBeingMobilized) {
 
+            int x = e.getX();
+            int y = e.getY();
+
+            for (GuiPiece piece : piecesOnTheMove) {
+                piece.setxPos(x);
+                piece.setyPos(y);
+                this.gameBoard.repaint();
+            }
+        }
     }
+
+    /*
+Unused functions. Implemented to fulfill interface.
+ */
     @Override
     public void mouseClicked(MouseEvent e) {
 
