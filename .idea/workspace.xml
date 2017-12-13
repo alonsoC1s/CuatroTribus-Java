@@ -7,13 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="081e717f-4ffa-419c-aa15-9809bf98f6f9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/GUI/Board$1.class" afterPath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/GUI/Board$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/GUI/Board.class" afterPath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/GUI/Board.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/GUI/BoardSquare.class" afterPath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/GUI/BoardSquare.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/GUI/DragNDropListener.class" afterPath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/GUI/DragNDropListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/Pieces/GuiPiece.class" afterPath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/Pieces/GuiPiece.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java" afterPath="$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BoardSquare.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BoardSquare.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1104">
-              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+            <state relative-caret-position="336">
+              <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#addPieceToSquare#0;class#BoardSquare#0" expanded="false" />
@@ -77,7 +72,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogicEngine.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LogicEngine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/LogicEngine.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
@@ -152,10 +147,10 @@
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
         <option value="$PROJECT_DIR$/src/com/company/GUI/Board.java" />
         <option value="$PROJECT_DIR$/src/com/company/Pieces/GuiPiece.java" />
-        <option value="$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java" />
         <option value="$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java" />
       </list>
     </option>
   </component>
@@ -204,7 +199,6 @@
     <panes>
       <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -241,6 +235,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -355,6 +350,7 @@
       <workItem from="1512365104654" duration="1867000" />
       <workItem from="1512514538992" duration="288000" />
       <workItem from="1512688402692" duration="39000" />
+      <workItem from="1512692816223" duration="346000" />
     </task>
     <task id="LOCAL-00001" summary="Created the piece creation and addition methods">
       <created>1512168072039</created>
@@ -374,7 +370,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29249000" />
+    <option name="totallyTimeSpent" value="29595000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -391,12 +387,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32799014" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32506528" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992327" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6684073" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3772846" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32715008" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32637075" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12986112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -410,7 +407,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32506528" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -520,7 +516,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -557,7 +552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="4" column="9" lean-forward="false" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -597,7 +591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -643,7 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -688,7 +680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -747,7 +738,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -807,7 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -822,23 +811,6 @@
             <element signature="method#parseXYCoords#0;class#Board#0" expanded="false" />
             <element signature="method#centerPieceToSquare#0;class#Board#0" expanded="false" />
             <element signature="method#nextTurn#0;class#Board#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1104">
-          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#addPieceToSquare#0;class#BoardSquare#0" expanded="false" />
-            <element signature="method#addPiecesToSquare#0;class#BoardSquare#0" expanded="false" />
-            <element signature="method#removePieceFromSquare#0;class#BoardSquare#0" expanded="false" />
-            <element signature="method#determineDominantColor#0;class#BoardSquare#0" expanded="false" />
-            <element signature="method#isClicked#0;class#BoardSquare#0" expanded="false" />
-            <element signature="method#setXY#0;class#BoardSquare#0" expanded="false" />
-            <element signature="method#resolveBattles#0;class#BoardSquare#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -900,6 +872,23 @@
         <state relative-caret-position="144">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#addPieceToSquare#0;class#BoardSquare#0" expanded="false" />
+            <element signature="method#addPiecesToSquare#0;class#BoardSquare#0" expanded="false" />
+            <element signature="method#removePieceFromSquare#0;class#BoardSquare#0" expanded="false" />
+            <element signature="method#determineDominantColor#0;class#BoardSquare#0" expanded="false" />
+            <element signature="method#isClicked#0;class#BoardSquare#0" expanded="false" />
+            <element signature="method#setXY#0;class#BoardSquare#0" expanded="false" />
+            <element signature="method#resolveBattles#0;class#BoardSquare#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

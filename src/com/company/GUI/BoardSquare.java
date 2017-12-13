@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BoardSquare {
-    //Dimension constants.
-    public static final int SQR_00_START = 0;
-    // ... blah blah blah ... //
 
     public List<GuiPiece> pieces = new ArrayList<>();
     public Piece.colors dominantColor; //This is to be determined by the color of the city in this square.
