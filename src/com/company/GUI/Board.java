@@ -87,10 +87,10 @@ public class Board extends JPanel{
         this.colorInTurn = Piece.colors.WHITE;
 
         //Creating a white horse
-        //FIXME: This is just for testing purposes.
+        //FIXME: This is just for testing purposes. Pieces need to be resized
         createAndAddPiece(Piece.colors.WHITE, Piece.types.HORSE, 2, true,0,0);
-        createAndAddPiece(Piece.colors.WHITE, Piece.types.HORSE, 3, true, 3,3);
-        createAndAddPiece(Piece.colors.WHITE, Piece.types.HORSE, 4,true,3,3);
+        createAndAddPiece(Piece.colors.BLUE, Piece.types.ARTILLERY, 3, true, 2,3);
+        createAndAddPiece(Piece.colors.RED, Piece.types.INFANTRY, 4,true,4,3);
     }
 
     /**
@@ -141,10 +141,10 @@ public class Board extends JPanel{
                 pathName += "Horse.png";
                 break;
             case INFANTRY:
-                pathName += "Infant.png";
+                pathName += "Infantry.png";
                 break;
             case ARTILLERY:
-                pathName += "Artillery.png";
+                pathName += "Artilliery.png";
                 break;
             case CITY:
                 pathName += "City.png";
