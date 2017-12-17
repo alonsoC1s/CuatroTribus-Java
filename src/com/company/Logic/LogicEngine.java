@@ -2,8 +2,6 @@ package com.company.Logic;
 import com.company.GUI.BoardSquare;
 import com.company.Pieces.GuiPiece;
 import com.company.Pieces.Piece;
-
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -19,7 +17,7 @@ public class LogicEngine {
      * List of pieces is sorted. Pieces are eliminated in 1:1 ratio starting from bottom.
      * @param defendingPieces Pieces originally on sqaure. Pieces defending the city
      * @param attackingPieces Pieces attacking the city.
-     * @return
+     * @return List of pieces surviving the battle
      */
     public static List<GuiPiece> resolveBattle(List<GuiPiece> defendingPieces, List<GuiPiece> attackingPieces){
         boolean artillieryPresent = false;
@@ -33,7 +31,7 @@ public class LogicEngine {
         }
 
         if (!artillieryPresent){
-            //TODO: Verify if the sorting actually works
+
             Collections.sort(defendingPieces);
             Collections.sort(attackingPieces);
 

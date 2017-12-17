@@ -60,7 +60,13 @@ public class BoardSquare {
         if (actingColor != this.dominantColor && this.dominantColor != null){
             List<GuiPiece> survivingPieces = LogicEngine.resolveBattle(this.pieces,newPieces);
 
-            pieces.addAll(survivingPieces);
+            if (!survivingPieces.isEmpty()) {
+                for (GuiPiece piece : survivingPieces) {
+                    piece.setRowCol(this.row, this.col);
+                }
+
+                pieces.addAll(survivingPieces);
+            }
         }else{ // No battle was detected
             for (GuiPiece piece: newPieces){
                 piece.setRowCol(this.row,this.col);

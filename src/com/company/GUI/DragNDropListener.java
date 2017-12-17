@@ -27,7 +27,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
      */
     public DragNDropListener( Board board){
         this.gameBoard = board;
-        this.boardMatrix = this.gameBoard.boardMatrix;
+        this.boardMatrix = Board.boardMatrix;
         this.troopsAreBeingMobilized = false;
     }
 
@@ -87,7 +87,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
         } else {
             this.clickedSquare.addPiecesToSquare(piecesOnTheMove, gameBoard.colorInTurn);
             this.troopsAreBeingMobilized = false;
-            piecesOnTheMove = Collections.emptyList();
+            piecesOnTheMove = new ArrayList<>();
             gameBoard.repaint();
         }
 
