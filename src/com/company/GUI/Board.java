@@ -17,7 +17,7 @@ public class Board extends JPanel{
 
     public Piece.colors colorInTurn;
     private Image imgBackground;
-    public BoardSquare[][] boardMatrix = new BoardSquare[6][6];
+    public static BoardSquare[][] boardMatrix = new BoardSquare[6][6];
 
     /**
      * Board main constructor. Called to create main game board, and to set up the initial game positions

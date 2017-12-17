@@ -9,6 +9,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DragNDropListener implements MouseMotionListener, MouseListener{
@@ -51,24 +52,26 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
 
                 //Creating panel to display options, and new list to contain radio buttons
                 final JPanel panel = new JPanel();
-                List<JRadioButton> pieceOption = new ArrayList<>();
+                int listSize = piecesOnSquare.size();
+                JRadioButton[] pieceOptions = new JRadioButton[listSize];
+                int i=0;
 
                 //Create new list of radio buttons representing available pieces and adding them to the panel
                 for (GuiPiece piece: piecesOnSquare){
-                    pieceOption.add(new JRadioButton(piece.toString()));
+                    pieceOptions[i] = new JRadioButton(piece.toString());
 
                     //Adding the radiobutton to the panel
-                    panel.add(pieceOption.get(piecesOnSquare.indexOf(piece)));
+                    panel.add(pieceOptions[i]);
+                    i++;
                 }
 
                 //Show the option pane
                 JOptionPane.showMessageDialog(this.gameBoard,panel,"Select pieces to mobilize",JOptionPane.PLAIN_MESSAGE);
 
                 //Getting the boolean values of the radiobuttons, and adding corresponding pieces to list of pieces being dragged
-                for (JRadioButton button: pieceOption){
-                    if (button.isSelected()){
-                        //Add the piece that is in the same index as the radio button
-                        piecesOnTheMove.add(this.piecesOnSquare.get(pieceOption.indexOf(button)));
+                for (int j=0; j<listSize ; j++){
+                    if(pieceOptions[j].isSelected()){
+                        piecesOnTheMove.add(this.piecesOnSquare.get(j));
                     }
                 }
 
@@ -84,6 +87,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
         } else {
             this.clickedSquare.addPiecesToSquare(piecesOnTheMove, gameBoard.colorInTurn);
             this.troopsAreBeingMobilized = false;
+            piecesOnTheMove = Collections.emptyList();
             gameBoard.repaint();
         }
 
