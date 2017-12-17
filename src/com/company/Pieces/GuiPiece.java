@@ -2,7 +2,7 @@ package com.company.Pieces;
 
 import java.awt.*;
 
-public class GuiPiece extends Piece {
+public class GuiPiece extends Piece implements Comparable<GuiPiece>{
     //Parameters to reference their position in board grid. Start at 0,0 to map directly to a matrix
     private int row;
     private int column;
@@ -95,6 +95,11 @@ public class GuiPiece extends Piece {
         return (  this.pColor.toString() + " " + this.pType.toString() + " with power " + this.pPower  );
     }
 
+    public void killPiece(){
+        this.isDeployed = false;
+        //TODO: Draw piece outside board, and inside deploying area.
+    }
+
 
     /*
     Getters and Setters
@@ -141,6 +146,24 @@ public class GuiPiece extends Piece {
     public types getType(){ return this.pType; }
 
     public colors getColor(){ return this.pColor; }
+
+    public int getPower(){ return  this.pPower; }
+
+    @Override
+    public int compareTo(GuiPiece o) {
+        int myPower = this.getPower();
+        int otherPower = o.getPower();
+        int diff = myPower - otherPower;
+
+        if (diff < 0){
+            return -1;
+        }else if (diff == 0){
+            return diff;
+        }else{
+            return 1;
+        }
+
+    }
 }
 
 

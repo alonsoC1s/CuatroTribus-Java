@@ -1,5 +1,6 @@
 package com.company.GUI;
 
+import com.company.Logic.LogicEngine;
 import com.company.Pieces.GuiPiece;
 import com.company.Pieces.Piece;
 
@@ -24,7 +25,7 @@ public class BoardSquare {
         this.dominantColor = null;
         this.hasCity = false;
 
-        this.setXY(row,col);
+        LogicEngine.centerSquare(row,col,this);
         this.determineDominantColor();
     }
 
@@ -48,14 +49,17 @@ public class BoardSquare {
     public void addPiecesToSquare(List<GuiPiece> newPieces, Piece.colors actingColor){
         System.out.println("Some new pieces were added to square " + this.row + "," + this.col);
 
-        for (GuiPiece piece: newPieces){
-            piece.setRowCol(this.row,this.col);
-        }
-
-        pieces.addAll(newPieces);
 
         if (actingColor != this.dominantColor && this.dominantColor != null){
-            this.resolveBattles();
+            List<GuiPiece> survivingPieces = LogicEngine.resolveBattle(this.pieces,newPieces);
+
+            pieces.addAll(survivingPieces);
+        }else{ // No battle was detected
+            for (GuiPiece piece: newPieces){
+                piece.setRowCol(this.row,this.col);
+            }
+
+            pieces.addAll(newPieces);
         }
 
         this.determineDominantColor();
@@ -107,67 +111,16 @@ public class BoardSquare {
                 && this.y <= clickY && this.y +99 >= clickY);
     }
 
-    /**
-     * Assigns default x,y coordinates to the square so clicks can be detected.
-     * @param row: Row assigned
-     * @param col: Col assigned
-     */
-    public void setXY(int row, int col ){
-        switch (col){
-            case 0:
-                this.x = 0;
-                break;
-            case 1:
-                this.x = 100;
-                break;
-            case 2:
-                this.x = 200;
-                break;
-            case 3:
-                this.x = 300;
-                break;
-            case 4:
-                this.x = 400;
-                break;
-            case 5:
-                this.x = 500;
-                break;
-        }
-
-        switch (row){
-            case 0:
-                this.y = 0;
-                break;
-            case 1:
-                this.y = 100;
-                break;
-            case 2:
-                this.y = 200;
-                break;
-            case 3:
-                this.y = 300;
-                break;
-            case 4:
-                this.y = 400;
-                break;
-            case 5:
-                this.y = 500;
-                break;
-        }
-    }
-
     public List<GuiPiece> getPieces() {
         return pieces;
     }
 
-    //ToDo: Write method to resolve battles or "collisions". Complete in logic engine.
-    private void resolveBattles(){
-        for( GuiPiece piece : this.pieces){
-            if (piece.getColor() != this.dominantColor){
-                System.out.println("A battle has been detected at " + this.row + "," + this.col);
-            }
-        }
+    public void setxPos(int x){
+        this.x = x;
     }
 
+    public void setyPos(int y){
+        this.y = y;
+    }
 
 }

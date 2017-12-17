@@ -89,6 +89,10 @@ public class Board extends JPanel{
         //Creating a white horse
         //FIXME: This is just for testing purposes. Pieces need to be resized
         createAndAddPiece(Piece.colors.WHITE, Piece.types.HORSE, 2, true,0,0);
+        createAndAddPiece(Piece.colors.WHITE, Piece.types.INFANTRY, 5,true,0,0);
+        createAndAddPiece(Piece.colors.WHITE, Piece.types.INFANTRY, 5,true,0,0);
+        createAndAddPiece(Piece.colors.WHITE, Piece.types.INFANTRY, 4,true,0,0);
+
         createAndAddPiece(Piece.colors.BLUE, Piece.types.ARTILLERY, 3, true, 2,3);
         createAndAddPiece(Piece.colors.RED, Piece.types.INFANTRY, 4,true,4,3);
     }
