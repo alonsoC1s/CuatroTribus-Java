@@ -76,8 +76,6 @@ public class BoardSquare {
         }
 
         this.determineDominantColor();
-
-
     }
 
     public void removePieceFromSquare(GuiPiece newPiece){
