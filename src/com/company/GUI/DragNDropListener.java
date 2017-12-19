@@ -1,15 +1,11 @@
 package com.company.GUI;
 
 import com.company.Pieces.GuiPiece;
-import javafx.scene.control.RadioButton;
-
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class DragNDropListener implements MouseMotionListener, MouseListener{
@@ -19,7 +15,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
     private List<GuiPiece> piecesOnSquare = new ArrayList<>();
     private List<GuiPiece> piecesOnTheMove = new ArrayList<>();
 
-    Boolean troopsAreBeingMobilized;
+    private Boolean troopsAreBeingMobilized;
 
     /**
      * Public constructor to set the game pieces & board accordingly

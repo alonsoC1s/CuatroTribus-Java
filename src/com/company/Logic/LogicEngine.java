@@ -2,6 +2,8 @@ package com.company.Logic;
 import com.company.GUI.BoardSquare;
 import com.company.Pieces.GuiPiece;
 import com.company.Pieces.Piece;
+
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,51 +22,64 @@ public class LogicEngine {
      * @return List of pieces surviving the battle
      */
     public static List<GuiPiece> resolveBattle(List<GuiPiece> defendingPieces, List<GuiPiece> attackingPieces){
-        boolean artillieryPresent = false;
         List<GuiPiece> winnerPieces = null;
 
         System.out.println("Solving a battle");
 
+        //Sorting the list of pieces
+        Collections.sort(defendingPieces);
+        Collections.sort(attackingPieces);
+
         //Check if an artillliery is withing *DEFENDING* pieces
         for (GuiPiece piece: defendingPieces){
-            artillieryPresent = piece.getType().equals(Piece.types.ARTILLERY);
-        }
+            if (piece.getType().equals(Piece.types.ARTILLERY)){
+                //If artilliery found, remove it, along with three lowermost troops on the attacker´s ranks
+                int artillieryIndex = defendingPieces.indexOf(piece);
+                defendingPieces.remove(artillieryIndex);
 
-        if (!artillieryPresent){
-
-            Collections.sort(defendingPieces);
-            Collections.sort(attackingPieces);
-
-            int sumDefenders = sumPicesValues(defendingPieces);
-            int sumAttackers = sumPicesValues(attackingPieces);
-
-            if (sumAttackers - sumDefenders < 0){ // Defenders win
-                for (int i=0; i<attackingPieces.size(); i++){
-                    attackingPieces.remove(i);
-                    defendingPieces.remove(i);
-
-                    //Return whatever pieces are left
-                    winnerPieces = defendingPieces;
+                for(int k=0; k<3; k++){
+                    attackingPieces.remove(k);
                 }
-            } else if (sumAttackers - sumDefenders > 0){ // Attackers win
-                for (int i=0; i<defendingPieces.size(); i++){
-                    attackingPieces.remove(i);
-                    defendingPieces.remove(i);
 
-                    //Return whatever pieces are left
-                    winnerPieces = attackingPieces;
-                }
-            }else{ // Draw!!
-                winnerPieces = null;
             }
 
-        }else{
-            //TODO: Missing case where artilliery is defending.
         }
+
+        //Calculate sum of values here to account for lost pieces if artilliery defended
+        int sumDefenders = sumPicesValues(defendingPieces);
+        int sumAttackers = sumPicesValues(attackingPieces);
+
+        //Check which party won
+        if (sumAttackers - sumDefenders < 0){ // Defenders win
+            for (int i=0; i<attackingPieces.size(); i++){
+                attackingPieces.remove(i);
+                defendingPieces.remove(i);
+
+                //Return whatever pieces are left
+                winnerPieces = defendingPieces;
+            }
+        } else if (sumAttackers - sumDefenders > 0){ // Attackers win
+            for (int i=0; i<defendingPieces.size(); i++){
+                attackingPieces.remove(i);
+                defendingPieces.remove(i);
+
+                //Return whatever pieces are left
+                winnerPieces = attackingPieces;
+            }
+        }else{ // Draw!!
+            //Return empty list instead of null to avoid runtime errors
+            winnerPieces = new ArrayList<>();
+        }
+
 
         return winnerPieces;
     }
 
+    /**
+     * Sums the values of all the piece´s power on the list
+     * @param pieces: List of pieces to be summed
+     * @return int: Total power of all pieces passed
+     */
     private static int sumPicesValues(List<GuiPiece> pieces){
         int sigma = 0;
         for (GuiPiece piece: pieces){
