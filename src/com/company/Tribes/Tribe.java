@@ -75,8 +75,8 @@ public abstract class Tribe {
         //Fetching piece icons
         List<GuiPiece> newArmy = new ArrayList<>();
         Image infantryIcon = this.logicEngine.getIconForPiece(color, Piece.types.INFANTRY);
-        Image horseIcon = LogicEngine.getIconForPiece(color, Piece.types.HORSE);
-        Image artillieryIcon = LogicEngine.getIconForPiece(color, Piece.types.ARTILLERY);
+        Image horseIcon = this.logicEngine.getIconForPiece(color, Piece.types.HORSE);
+        Image artillieryIcon = this.logicEngine.getIconForPiece(color, Piece.types.ARTILLERY);
 
         //Creating infrantries.
         for(int i=0; i<infrantryPowerList.length; i++){

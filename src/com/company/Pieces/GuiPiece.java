@@ -27,6 +27,11 @@ public class GuiPiece extends Piece implements Comparable<GuiPiece>{
         this.iconWidth = icon.getWidth(null);
     }
 
+    public GuiPiece(colors color, types type, int power, boolean isDeployed,Image icon){
+        super(color, type, power, isDeployed);
+        this.icon = icon;
+    }
+
     /*
     Checks row / col parameters of the piece, and centers it into the square
     FIXME: Needs tweaking to center pieces correctly

@@ -3,6 +3,9 @@ import com.company.GUI.BoardSquare;
 import com.company.Pieces.GuiPiece;
 import com.company.Pieces.Piece;
 
+import javax.swing.*;
+import java.awt.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -136,5 +139,50 @@ public class LogicEngine {
                 break;
         }
     }
+
+    /**
+     * Gets the icon for a specific piece using pieceColor and type, making use of naming conventions for icons
+     * @param pieceColor: Enum declared in Pieces. Corresponds to each of 4 tribe colors
+     * @param pieceType: Enum declared in Pieces. Corresponds to each of the 3 possible piece types + city
+     * @return Image object with the image obtained for the specified piece
+     */
+    public Image getIconForPiece(Piece.colors pieceColor, Piece.types pieceType){
+        String pathName = "";
+
+        switch (pieceColor) {
+            case RED:
+                pathName += "r_";
+                break;
+            case BLUE:
+                pathName += "b_";
+                break;
+            case GREEN:
+                pathName += "g_";
+                break;
+            case WHITE:
+                pathName += "w_";
+                break;
+        }
+
+        switch (pieceType) {
+            case HORSE:
+                pathName += "Horse.png";
+                break;
+            case INFANTRY:
+                pathName += "Infantry.png";
+                break;
+            case ARTILLERY:
+                pathName += "Artilliery.png";
+                break;
+            case CITY:
+                pathName += "City.png";
+                break;
+        }
+
+        URL iconUrl = getClass().getClassLoader().getResource("com/company/images/" + pathName);
+        return new ImageIcon(iconUrl).getImage();
+
+    }
+
 
 }
