@@ -169,6 +169,11 @@ public class GuiPiece extends Piece implements Comparable<GuiPiece>{
         }
 
     }
+
+    public boolean isClicked( int clickX, int clickY){
+        return (this.xPos <= clickX && this.xPos +74 >= clickX
+                && this.yPos <= clickY && this.yPos +74 >= clickY);
+    }
 }
 
 

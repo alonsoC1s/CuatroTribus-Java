@@ -3,12 +3,10 @@ package com.company.GUI;
 import com.company.Main;
 import com.company.Pieces.GuiPiece;
 import com.company.Pieces.Piece;
+import com.company.Tribes.Tribe;
 
 import javax.swing.*;
 import java.awt.*;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 
 //FixMe: Missing the turn switching functionality. Currently, white is the only playing color;
@@ -16,7 +14,7 @@ import java.util.List;
 public class Board extends JPanel{
     private JFrame fram;
 
-    public Piece.colors colorInTurn;
+    public Tribe tribeInTurn;
     private Image imgBackground;
     public static BoardSquare[][] boardMatrix = new BoardSquare[6][6];
 
@@ -51,7 +49,6 @@ public class Board extends JPanel{
             }
         }
 
-        //TODO: Find a way to get only the current player´s reserves.
         ReservesSquare currentPlayerReserves = Main.currentPlayer.playerTribe.getReservesSquare();
 
         for (GuiPiece piece : currentPlayerReserves.pieces){
@@ -92,29 +89,8 @@ public class Board extends JPanel{
             }
         }
 
-        //Sets white as color in turn
-        this.colorInTurn = Piece.colors.WHITE;
+        this.tribeInTurn = Main.currentPlayer.playerTribe;
 
-    }
-
-    /**
-     * Function to switch to next color´ turn.
-     */
-    public void nextTurn(){
-        switch (colorInTurn){
-            case WHITE:
-                this.colorInTurn = Piece.colors.RED;
-                break;
-            case RED:
-                this.colorInTurn = Piece.colors.BLUE;
-                break;
-            case BLUE:
-                this.colorInTurn = Piece.colors.GREEN;
-                break;
-            case GREEN:
-                this.colorInTurn = Piece.colors.WHITE;
-                break;
-        }
     }
 
 

@@ -1,5 +1,6 @@
 package com.company.GUI;
 
+import com.company.Main;
 import com.company.Pieces.GuiPiece;
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -16,6 +17,10 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
     private List<GuiPiece> piecesOnTheMove = new ArrayList<>();
 
     private Boolean troopsAreBeingMobilized;
+    private Boolean deployingTroops;
+
+    private GuiPiece pieceOnDeployment;
+    private ReservesSquare currentPlayerReserves;
 
     /**
      * Public constructor to set the game pieces & board accordingly
@@ -25,6 +30,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
         this.gameBoard = board;
         this.boardMatrix = Board.boardMatrix;
         this.troopsAreBeingMobilized = false;
+        this.deployingTroops = false;
     }
 
     /**
@@ -36,19 +42,24 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
         int clickX = e.getX();
         int clickY = e.getY();
 
-        //TODO: Check if the click is within board, or in staging area or reserves area
+        //TODO: Move the piece translation funcitonality to a separete function, and call said function on mousePressed and on Mouse Released
 
-        this.getClickedSquare(clickX,clickY);
 
         if (reservesClicked(clickX)){
-            //TODO: Find a way to check if a piece on reserve was clicked.
+
+            this.currentPlayerReserves = Main.currentPlayer.playerTribe.getReservesSquare();
+
+            pieceOnDeployment = getClickedPiece(clickX,clickY);
+            deployingTroops = true;
+
 
         } else { //Reserves were not clicked.
+            this.clickedSquare = getClickedSquare(clickX,clickY);
 
             if (!troopsAreBeingMobilized) {
 
-                //Get a response from the clicked square
-                if (clickedSquare.dominantColor == gameBoard.colorInTurn && !clickedSquare.isEmpty()) {
+                //Check if the user has power over the clicked square
+                if (clickedSquare.dominantColor == gameBoard.tribeInTurn.getColor() && !clickedSquare.isEmpty()) {
                     this.piecesOnSquare = clickedSquare.getPieces();
 
                     //Creating panel to display options, and new list to contain radio buttons
@@ -81,12 +92,12 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
 
                     //Todo: Cleanup all lists used.
 
-                } else {
+                } else { // Square clicked by user is outside of his control
                     System.out.println("You have no power over this city");
                     return;
                 }
-            } else {
-                this.clickedSquare.addPiecesToSquare(piecesOnTheMove, gameBoard.colorInTurn);
+            } else { //Troops are not being mobilized
+                this.clickedSquare.addPiecesToSquare(piecesOnTheMove, gameBoard.tribeInTurn.getColor());
                 this.troopsAreBeingMobilized = false;
                 piecesOnTheMove = new ArrayList<>();
                 gameBoard.repaint();
@@ -98,7 +109,6 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
     private boolean reservesClicked(int xCoord){
         return xCoord > 605;
     }
-
 
     /**
      * Called when mouse is being moved. Only acts if troopsAreBeingMobilized
@@ -124,15 +134,28 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
      * @param clickX: x coord of the click
      * @param clickY: y coord of the click
      */
-    public void getClickedSquare(int clickX, int clickY){
+    public BoardSquare getClickedSquare(int clickX, int clickY){
+        BoardSquare clickedSqr = null;
+
         for(int row=0; row<6; row++){
             for(int col=0; col<6; col++){
                 if (boardMatrix[row][col].isClicked(clickX,clickY)){
-                    this.clickedSquare = boardMatrix[row][col];
-                    System.out.println("Square on " + this.clickedSquare.row + "," + this.clickedSquare.col + " was clicked");
+                    clickedSqr = boardMatrix[row][col];
+                    System.out.println("Square on " + clickedSqr.row + "," + clickedSqr.col + " was clicked");
                 }
             }
         }
+        return clickedSqr;
+    }
+
+    public GuiPiece getClickedPiece(int clickX, int clickY){
+        GuiPiece selectedPiece = null ;
+        for (GuiPiece piece : this.currentPlayerReserves.pieces){
+            if (piece.isClicked(clickX,clickY)){
+                selectedPiece = piece;
+            }
+        }
+        return selectedPiece;
     }
 
 
@@ -151,11 +174,35 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
     public void mouseExited(MouseEvent e) {
 
     }
+
     @Override
     public void mouseReleased(MouseEvent e) {
+
+        if (deployingTroops) {
+            this.clickedSquare = getClickedSquare(e.getX(),e.getY());
+
+            BoardSquare releaseSqr = this.getClickedSquare(e.getX(), e.getY());
+
+            List <GuiPiece> pieceList = new ArrayList<>();
+            pieceOnDeployment.isDeployed = true;
+            pieceList.add(pieceOnDeployment); //Fixme: Not ideal to create list of one element, but the method equiped to handle collisions only receives lists
+
+            //TODO: If releaseSqr null, check if dropped back to reserves (not possible under rules)
+
+            releaseSqr.addPiecesToSquare(pieceList, gameBoard.tribeInTurn.getColor());
+            this.deployingTroops = false;
+            pieceOnDeployment = null;
+            gameBoard.repaint();
+        }
     }
+
     @Override
     public void mouseDragged(MouseEvent e) {
+        if (deployingTroops){
+            pieceOnDeployment.xPos = e.getX();
+            pieceOnDeployment.yPos = e.getY();
+            this.gameBoard.repaint();
+        }
     }
 
 

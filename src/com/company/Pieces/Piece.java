@@ -7,7 +7,7 @@ public abstract class Piece {
    protected colors pColor;
    protected types pType;
    protected int pPower;
-   protected boolean isDeployed;
+   public boolean isDeployed;
 
    public Piece(colors color, types type, int power, boolean isDeployed){
        this.pColor = color;
