@@ -31,7 +31,7 @@ public class BoardSquare {
 
     /**
      * This method is used when first creating pieces and adding them to board
-     * IMPORTANT NOTE: THIS IS NOT TO BE USED WHILE MOVING PIECES DURING GAME. ONLY DURING SETUP
+     * IMPORTANT NOTE: THIS IS NOT TO BE USED WHILE MOVING PIECES DURING GAME. ONLY DURING SETUP, NOT ABLE TO HANDLE COLLISIONS
      * @param newPiece: Piece that was created and needs to be added.
      */
     public void addPieceToSquare(GuiPiece newPiece){

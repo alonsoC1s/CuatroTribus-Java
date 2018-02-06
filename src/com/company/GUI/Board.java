@@ -20,7 +20,7 @@ public class Board extends JPanel{
     public static BoardSquare[][] boardMatrix = new BoardSquare[6][6];
 
     /**
-     * Board main constructor. Called to create main game board, and to set up the initial game positions
+     * Board main constructor. Called to create main game board, init graphics, and to set up the initial game positions
      */
     public Board(){
         //Create new Drag and Drop listener

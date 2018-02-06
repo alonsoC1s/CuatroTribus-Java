@@ -11,16 +11,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Tribe {
-    Piece.colors myColor;
-    int PacsAvailable;
-    List<GuiPiece> tribalArmy;
-    List<BoardSquare> dominantTerritory;
+    private Piece.colors myColor;
+    private int PacsAvailable;
+    private List<GuiPiece> tribalArmy;
+    List<BoardSquare> dominantTerritory; //Is this information really necessary???
     Board gameBoard;
-    LogicEngine logicEngine = new LogicEngine();
+    private LogicEngine logicEngine = new LogicEngine();
 
 
     //TODO: Cities are missing
     //TODO: List of squares dominated by tribe still unimplemented.
+
     /**
      * Constructor. When called, a new tribe of color x is created.
      * The method then creates a full army for each color as specified by the game´s rules
@@ -79,20 +80,35 @@ public abstract class Tribe {
         Image artillieryIcon = this.logicEngine.getIconForPiece(color, Piece.types.ARTILLERY);
 
         //Creating infrantries.
-        for(int i=0; i<infrantryPowerList.length; i++){
-            newArmy.add(new GuiPiece(color, Piece.types.INFANTRY,infrantryPowerList[i], false, infantryIcon));
+        for (int anInfrantryPowerList : infrantryPowerList) {
+            newArmy.add(new GuiPiece(color, Piece.types.INFANTRY, anInfrantryPowerList, false, infantryIcon));
         }
 
         //Creating horses
-        for(int i=0; i<horsePowerList.length; i++){
-            newArmy.add(new GuiPiece(color, Piece.types.HORSE, horsePowerList[i], false, horseIcon));
+        for (int aHorsePowerList : horsePowerList) {
+            newArmy.add(new GuiPiece(color, Piece.types.HORSE, aHorsePowerList, false, horseIcon));
         }
 
         //Creating artillieries
-        for(int i=0; i<artillieryPowerList.length; i++){
-            newArmy.add(new GuiPiece(color, Piece.types.ARTILLERY, artillieryPowerList[i], false, artillieryIcon));
+        for (int anArtillieryPowerList : artillieryPowerList) {
+            newArmy.add(new GuiPiece(color, Piece.types.ARTILLERY, anArtillieryPowerList, false, artillieryIcon));
         }
 
         return newArmy;
+    }
+
+    /**
+     * Method used to count how many cities are dominated, and collect one PAC for each
+     * Uses the Logic Engine to count cities.
+     */
+    private void collectPACs(){
+        this.PacsAvailable = LogicEngine.countCitiesDominated(this);
+    }
+
+
+    //Getters and setters
+
+    public Piece.colors getColor() {
+        return myColor;
     }
 }

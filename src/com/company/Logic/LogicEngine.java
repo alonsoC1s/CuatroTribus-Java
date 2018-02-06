@@ -1,7 +1,9 @@
 package com.company.Logic;
+import com.company.GUI.Board;
 import com.company.GUI.BoardSquare;
 import com.company.Pieces.GuiPiece;
 import com.company.Pieces.Piece;
+import com.company.Tribes.Tribe;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +15,7 @@ import java.util.List;
 
 public class LogicEngine {
     //Leave space for dimension constants
+    //TODO: FILL OUT PROPER DIMENSION CONSTANTS
 
 
     //GAMEPLAY RELATED METHODS
@@ -184,5 +187,23 @@ public class LogicEngine {
 
     }
 
+    /**
+     * Counts how many cities theTribe controls
+     * @param theTribe: the Tribe calling the method
+     * @return int: number of cities dominated
+     */
+    public static int countCitiesDominated(Tribe theTribe){
+        int totalCities = 0;
+
+        for( int row=0; row<6 ;row++){
+            for (int col=0; col<6; col++){
+                if(Board.boardMatrix[row][col].dominantColor == theTribe.getColor()){
+                    totalCities++;
+                }
+            }
+        }
+
+        return totalCities;
+    }
 
 }
