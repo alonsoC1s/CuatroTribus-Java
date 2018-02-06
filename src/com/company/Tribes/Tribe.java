@@ -2,6 +2,7 @@ package com.company.Tribes;
 
 import com.company.GUI.Board;
 import com.company.GUI.BoardSquare;
+import com.company.GUI.ReservesSquare;
 import com.company.Logic.LogicEngine;
 import com.company.Pieces.GuiPiece;
 import com.company.Pieces.Piece;
@@ -11,12 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Tribe {
-    private Piece.colors myColor;
-    private int PacsAvailable;
-    private List<GuiPiece> tribalArmy;
+    protected Piece.colors myColor;
+    protected int PacsAvailable;
+    protected List<GuiPiece> tribalArmy = new ArrayList<>();
     List<BoardSquare> dominantTerritory; //Is this information really necessary???
     Board gameBoard;
-    private LogicEngine logicEngine = new LogicEngine();
+    protected LogicEngine logicEngine = new LogicEngine();
+    private ReservesSquare reserves = new ReservesSquare(this);
 
 
     //TODO: Cities are missing
@@ -62,6 +64,8 @@ public abstract class Tribe {
                 break;
         }
 
+        placePiecesOnReserveArea();
+
     }
 
     /**
@@ -105,10 +109,33 @@ public abstract class Tribe {
         this.PacsAvailable = LogicEngine.countCitiesDominated(this);
     }
 
+    private void placePiecesOnReserveArea(){
+        int index = 0;
+        int index2 = 1;
+        for (GuiPiece piece : tribalArmy){
+            piece.setxPos(620+index2);
+            piece.setyPos(index*80);
+
+            index++;
+
+            if (index % 8 == 0){
+                index2+= 90;
+                index = 0;
+            }
+        }
+
+        this.reserves.addReserves(this.tribalArmy);
+
+    }
+
 
     //Getters and setters
 
     public Piece.colors getColor() {
         return myColor;
+    }
+
+    public ReservesSquare getReservesSquare(){
+        return this.reserves;
     }
 }

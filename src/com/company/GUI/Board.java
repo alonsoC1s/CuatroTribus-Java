@@ -1,5 +1,6 @@
 package com.company.GUI;
 
+import com.company.Main;
 import com.company.Pieces.GuiPiece;
 import com.company.Pieces.Piece;
 
@@ -18,6 +19,7 @@ public class Board extends JPanel{
     public Piece.colors colorInTurn;
     private Image imgBackground;
     public static BoardSquare[][] boardMatrix = new BoardSquare[6][6];
+
 
     /**
      * Board main constructor. Called to create main game board, init graphics, and to set up the initial game positions
@@ -49,6 +51,13 @@ public class Board extends JPanel{
             }
         }
 
+        //TODO: Find a way to get only the current player´s reserves.
+        ReservesSquare currentPlayerReserves = Main.currentPlayer.playerTribe.getReservesSquare();
+
+        for (GuiPiece piece : currentPlayerReserves.pieces){
+            g.drawImage(piece.getIcon(),piece.getxPos(),piece.getyPos(),null);
+        }
+
     }
 
     /**
@@ -67,7 +76,7 @@ public class Board extends JPanel{
         fram.setVisible(true);
         fram.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fram.add(this);
-        fram.setSize(imgBackground.getWidth(null),imgBackground.getHeight(null));
+        fram.setSize(imgBackground.getWidth(null)+450,imgBackground.getHeight(null)+50);
 
 
     }

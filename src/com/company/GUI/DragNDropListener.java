@@ -40,55 +40,65 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
 
         this.getClickedSquare(clickX,clickY);
 
-        if (!troopsAreBeingMobilized){
+        if (reservesClicked(clickX)){
+            //TODO: Find a way to check if a piece on reserve was clicked.
 
-            //Get a response from the clicked square
-            if (clickedSquare.dominantColor == gameBoard.colorInTurn && !clickedSquare.isEmpty()) {
-                this.piecesOnSquare = clickedSquare.getPieces();
+        } else { //Reserves were not clicked.
 
-                //Creating panel to display options, and new list to contain radio buttons
-                final JPanel panel = new JPanel();
-                int listSize = piecesOnSquare.size();
-                JRadioButton[] pieceOptions = new JRadioButton[listSize];
-                int i=0;
+            if (!troopsAreBeingMobilized) {
 
-                //Create new list of radio buttons representing available pieces and adding them to the panel
-                for (GuiPiece piece: piecesOnSquare){
-                    pieceOptions[i] = new JRadioButton(piece.toString());
+                //Get a response from the clicked square
+                if (clickedSquare.dominantColor == gameBoard.colorInTurn && !clickedSquare.isEmpty()) {
+                    this.piecesOnSquare = clickedSquare.getPieces();
 
-                    //Adding the radiobutton to the panel
-                    panel.add(pieceOptions[i]);
-                    i++;
-                }
+                    //Creating panel to display options, and new list to contain radio buttons
+                    final JPanel panel = new JPanel();
+                    int listSize = piecesOnSquare.size();
+                    JRadioButton[] pieceOptions = new JRadioButton[listSize];
+                    int i = 0;
 
-                //Show the option pane
-                JOptionPane.showMessageDialog(this.gameBoard,panel,"Select pieces to mobilize",JOptionPane.PLAIN_MESSAGE);
+                    //Create new list of radio buttons representing available pieces and adding them to the panel
+                    for (GuiPiece piece : piecesOnSquare) {
+                        pieceOptions[i] = new JRadioButton(piece.toString());
 
-                //Getting the boolean values of the radiobuttons, and adding corresponding pieces to list of pieces being dragged
-                for (int j=0; j<listSize ; j++){
-                    if(pieceOptions[j].isSelected()){
-                        piecesOnTheMove.add(this.piecesOnSquare.get(j));
+                        //Adding the radiobutton to the panel
+                        panel.add(pieceOptions[i]);
+                        i++;
                     }
+
+                    //Show the option pane
+                    JOptionPane.showMessageDialog(this.gameBoard, panel, "Select pieces to mobilize", JOptionPane.PLAIN_MESSAGE);
+
+                    //Getting the boolean values of the radiobuttons, and adding corresponding pieces to list of pieces being dragged
+                    for (int j = 0; j < listSize; j++) {
+                        if (pieceOptions[j].isSelected()) {
+                            piecesOnTheMove.add(this.piecesOnSquare.get(j));
+                        }
+                    }
+
+                    if (!piecesOnTheMove.isEmpty())
+                        troopsAreBeingMobilized = true;
+
+                    //Todo: Cleanup all lists used.
+
+                } else {
+                    System.out.println("You have no power over this city");
+                    return;
                 }
-
-                if(!piecesOnTheMove.isEmpty())
-                    troopsAreBeingMobilized = true;
-
-                //Todo: Cleanup all lists used.
-
             } else {
-                System.out.println("You have no power over this city");
-                return;
+                this.clickedSquare.addPiecesToSquare(piecesOnTheMove, gameBoard.colorInTurn);
+                this.troopsAreBeingMobilized = false;
+                piecesOnTheMove = new ArrayList<>();
+                gameBoard.repaint();
             }
-        } else {
-            this.clickedSquare.addPiecesToSquare(piecesOnTheMove, gameBoard.colorInTurn);
-            this.troopsAreBeingMobilized = false;
-            piecesOnTheMove = new ArrayList<>();
-            gameBoard.repaint();
+
         }
-
-
     }
+
+    private boolean reservesClicked(int xCoord){
+        return xCoord > 605;
+    }
+
 
     /**
      * Called when mouse is being moved. Only acts if troopsAreBeingMobilized
