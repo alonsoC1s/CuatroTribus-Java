@@ -47,13 +47,13 @@ public class BoardSquare {
     /**
      * Method used during gameplay when different players movilze army
      * NOTE: THIS IS THE CORRECT METHOD TO BE USED DURING GAMEPLAY AS IT IS EQUIPPED TO HANDLE COLLISIONS.
+     * BTW no need to change deployment status
      * @param newPieces: List of pieces that are being moved to this square
      */
     public void addPiecesToSquare(List<GuiPiece> newPieces, colors actingColor){
         System.out.println("Some new pieces were added to square " + this.row + "," + this.col);
 
         //First, get the square that previously contained them, and remove pieces
-
         for (GuiPiece piece: newPieces){
             int prevCol = piece.getColumn();
             int prevRow = piece.getRow();

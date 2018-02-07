@@ -6,10 +6,13 @@ import com.company.Logic.LogicEngine;
 import com.company.Pieces.GuiPiece;
 import com.company.Pieces.Piece;
 import com.company.colors;
+import sun.rmi.runtime.Log;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.company.Pieces.Piece.types.HORSE;
 
 public class Tribe {
     protected colors myColor;
@@ -84,7 +87,7 @@ public class Tribe {
         List<GuiPiece> newArmy = new ArrayList<>();
 
         Image infantryIcon = this.logicEngine.getIconForPiece(color, Piece.types.INFANTRY);
-        Image horseIcon = this.logicEngine.getIconForPiece(color, Piece.types.HORSE);
+        Image horseIcon = this.logicEngine.getIconForPiece(color, HORSE);
         Image artillieryIcon = this.logicEngine.getIconForPiece(color, Piece.types.ARTILLERY);
 
         //Creating infrantries.
@@ -94,7 +97,7 @@ public class Tribe {
 
         //Creating horses
         for (int aHorsePowerList : horsePowerList) {
-            newArmy.add(new GuiPiece(color, Piece.types.HORSE, aHorsePowerList, false, horseIcon));
+            newArmy.add(new GuiPiece(color, HORSE, aHorsePowerList, false, horseIcon));
         }
 
         //Creating artillieries
@@ -109,7 +112,7 @@ public class Tribe {
      * Method used to count how many cities are dominated, and collect one PAC for each
      * Uses the Logic Engine to count cities.
      */
-    protected void collectPACs(){
+    public void collectPACs(){
         this.PacsAvailable = LogicEngine.countCitiesDominated(this);
     }
 
@@ -120,6 +123,26 @@ public class Tribe {
      */
     private void placePiecesOnReserveArea(){
         this.reserves.addReserves(this.tribalArmy);
+    }
+
+    public boolean canBuyThisPiece(GuiPiece piece){
+        boolean canBuyIt;
+
+        int price = piece.getPiecePrice();
+
+        //Check if the user has enough PACs to buy the selected piece
+        canBuyIt = PacsAvailable - price > 0;
+
+        return canBuyIt;
+    }
+
+    public void buyThisPiece(GuiPiece piece){
+
+        int piecePrice = piece.getPiecePrice();
+        this.PacsAvailable -= piecePrice;
+
+        this.reserves.removeAndDeploy(piece);
+
     }
 
 
@@ -135,5 +158,9 @@ public class Tribe {
 
     public List<GuiPiece> getTribalArmy() {
         return tribalArmy;
+    }
+
+    public int getPacsAvailable() {
+        return PacsAvailable;
     }
 }

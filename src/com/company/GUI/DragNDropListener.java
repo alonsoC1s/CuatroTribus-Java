@@ -13,8 +13,8 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
     private static BoardSquare[][] boardMatrix;
     private BoardSquare clickedSquare;
     private Board gameBoard;
-    private List<GuiPiece> piecesOnSquare = new ArrayList<>();
-    private List<GuiPiece> piecesOnTheMove = new ArrayList<>();
+    private List<GuiPiece> piecesOnSquare;
+    private List<GuiPiece> piecesOnTheMove;
 
     private Boolean troopsAreBeingMobilized;
     private Boolean deployingTroops;
@@ -28,9 +28,12 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
      */
     public DragNDropListener( Board board){
         this.gameBoard = board;
-        this.boardMatrix = Board.boardMatrix;
+        boardMatrix = Board.boardMatrix;
         this.troopsAreBeingMobilized = false;
         this.deployingTroops = false;
+
+        piecesOnSquare = new ArrayList<>();
+        piecesOnTheMove = new ArrayList<>();
     }
 
     /**
@@ -45,7 +48,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
 
         if (reservesClicked(clickX)){
 
-            this.currentPlayerReserves = Main.currentPlayer.playerTribe.getReservesSquare();
+            currentPlayerReserves = Main.currentPlayer.playerTribe.getReservesSquare();
 
             pieceOnDeployment = getClickedPiece(clickX,clickY);
             deployingTroops = true;
@@ -57,7 +60,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
             if (!troopsAreBeingMobilized) { // i.e this is the user trying to select pieces to move
 
                 //Check if the user has power over the clicked square
-                if (clickedSquare.dominantColor == gameBoard.tribeInTurn.getColor() && !clickedSquare.isEmpty()) {
+                if (clickedSquare.dominantColor == Main.currentPlayer.playerTribe.getColor() && !clickedSquare.isEmpty()) {
                     this.piecesOnSquare = clickedSquare.getPieces();
 
                     //Creating panel to display options, and new list to contain radio buttons
@@ -147,15 +150,21 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
 
             BoardSquare releaseSqr = this.getClickedSquare(e.getX(), e.getY());
 
-            List <GuiPiece> pieceList = new ArrayList<>();
-            pieceOnDeployment.isDeployed = true;
-            pieceList.add(pieceOnDeployment); //Fixme: Not ideal to create list of one element, but the method equiped to handle collisions only receives lists
+            //Check if the user can buy the piece. If so, the purchase is carried out by Tribe class
+            if (Main.currentPlayer.playerTribe.canBuyThisPiece(pieceOnDeployment)) {
 
-            //TODO: If releaseSqr null, check if dropped back to reserves (not possible under rules)
+                //Call the method for buying pieces. Changes deployment status and charges user etc...
+                Main.currentPlayer.playerTribe.buyThisPiece(pieceOnDeployment);
 
-            releaseSqr.addPiecesToSquare(pieceList, gameBoard.tribeInTurn.getColor());
-            this.deployingTroops = false;
-            pieceOnDeployment = null;
+                List<GuiPiece> pieceList = new ArrayList<>();
+                pieceList.add(pieceOnDeployment); //Fixme: Not ideal to create list of one element, but the method equiped to handle collisions only receives lists
+
+                //TODO: If releaseSqr null, check if dropped back to reserves (not possible under rules)
+
+                releaseSqr.addPiecesToSquare(pieceList, Main.currentPlayer.playerTribe.getColor());
+                this.deployingTroops = false;
+                pieceOnDeployment = null;
+            }
             gameBoard.repaint();
         }
     }
@@ -187,7 +196,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
      */
     public GuiPiece getClickedPiece(int clickX, int clickY){
         GuiPiece selectedPiece = null ;
-        for (GuiPiece piece : this.currentPlayerReserves.pieces){
+        for (GuiPiece piece : currentPlayerReserves.pieces){
             if (piece.isClicked(clickX,clickY)){
                 selectedPiece = piece;
             }

@@ -2,14 +2,17 @@ package com.company;
 
 import com.company.GUI.Board;
 import com.company.Logic.LogicEngine;
-import com.company.Pieces.Piece;
 import com.company.Tribes.Tribe;
+
+import javax.swing.*;
+import java.awt.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class Main {
     static Board mainBoard;
     public static Player currentPlayer;
     public static LogicEngine gameLogicEngine;
-
 
     /*
     TODO: Show brand banner on splashscreen
@@ -20,6 +23,8 @@ public class Main {
 
     //All piece objects are created when tribal army is created on Tribe constructor
     //Board matrix initialized when Board is created.
+
+    //Important Note: The order in which objects are created is important. They are interdependent
      */
 
     public static void main(String[] args) throws Exception {
@@ -29,15 +34,23 @@ public class Main {
 
         //Creating tribes
         //TODO: This is temporal. Tribes should have indiidual classes, cause different abilities.
-        Tribe tribuBlanca = new Tribe(colors.GREEN,gameLogicEngine);
+        Tribe tribuBlanca = new Tribe(colors.WHITE,gameLogicEngine);
 
         //Creating a user Player
         Player jugador1 = new Player(tribuBlanca,"Alonso");
 
-        currentPlayer = jugador1;
-
+        //Create the main board reference.
         mainBoard = new Board();
 
 
+        jugador1.beginTurn();
+
+
     }
+
+    public static void updateCurrentPlayer(Player player){
+        currentPlayer = player;
+    }
+
+
 }

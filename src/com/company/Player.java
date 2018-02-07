@@ -11,5 +11,11 @@ public class Player {
         this.playerName = name;
     }
 
+    public void beginTurn(){
+        this.playerTribe.collectPACs();
+        System.out.println("Tienes " + this.playerTribe.getPacsAvailable() + " PACs disponibles ");
+
+        Main.updateCurrentPlayer(this);
+    }
 
 }

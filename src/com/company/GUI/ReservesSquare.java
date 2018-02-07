@@ -49,4 +49,9 @@ public class ReservesSquare {
         }
     }
 
+    public void removeAndDeploy(GuiPiece piece){
+        this.pieces.remove(piece);
+        piece.isDeployed = true;
+    }
+
 }

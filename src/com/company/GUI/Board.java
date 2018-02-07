@@ -88,7 +88,7 @@ public class Board extends JPanel{
             }
         }
 
-        this.tribeInTurn = Main.currentPlayer.playerTribe;
+       // this.tribeInTurn = Main.currentPlayer.playerTribe;
 
     }
 
