@@ -1,7 +1,8 @@
 package com.company.Pieces;
 
+import com.company.colors;
+
 public abstract class Piece {
-   public enum colors{WHITE, RED, BLUE, GREEN}
    public enum types{HORSE, ARTILLERY, INFANTRY, CITY}
 
    protected colors pColor;

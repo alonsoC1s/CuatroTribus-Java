@@ -6,6 +6,7 @@
     <li> Implement the turn switching mechanism </li>
     <li> Perfect the troop reserve mechanism </li>
     <li> Implement PAC recollection </li>
+    <li> IMPROVE STABILITY WITH EXCEPTION HANDLING </li>
     <li> Expand documentation </li>
     <li> Correctly tune game board dimensions </li>
     <li> Visual improvements </li>

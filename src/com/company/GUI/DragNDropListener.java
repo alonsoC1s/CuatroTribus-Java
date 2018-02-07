@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DragNDropListener implements MouseMotionListener, MouseListener{
-    private BoardSquare[][] boardMatrix;
+    private static BoardSquare[][] boardMatrix;
     private BoardSquare clickedSquare;
     private Board gameBoard;
     private List<GuiPiece> piecesOnSquare = new ArrayList<>();
@@ -20,7 +20,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
     private Boolean deployingTroops;
 
     private GuiPiece pieceOnDeployment;
-    private ReservesSquare currentPlayerReserves;
+    private static ReservesSquare currentPlayerReserves;
 
     /**
      * Public constructor to set the game pieces & board accordingly

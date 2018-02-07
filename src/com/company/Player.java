@@ -10,4 +10,6 @@ public class Player {
         this.playerTribe = playerTribe;
         this.playerName = name;
     }
+
+
 }

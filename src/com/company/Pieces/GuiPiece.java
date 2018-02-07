@@ -1,5 +1,7 @@
 package com.company.Pieces;
 
+import com.company.colors;
+
 import java.awt.*;
 
 public class GuiPiece extends Piece implements Comparable<GuiPiece>{
@@ -155,6 +157,11 @@ public class GuiPiece extends Piece implements Comparable<GuiPiece>{
 
     public int getPower(){ return  this.pPower; }
 
+    /**
+     * Method implemented to make use of collections sorting method.
+     * @param o: guiPiece. Short for "other"
+     * @return: -1 for otherPiece being higher power; 1 for thispiece higher power; 0 for equal power.
+     */
     @Override
     public int compareTo(GuiPiece o) {
         int myPower = this.getPower();

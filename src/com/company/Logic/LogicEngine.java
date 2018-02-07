@@ -4,6 +4,7 @@ import com.company.GUI.BoardSquare;
 import com.company.Pieces.GuiPiece;
 import com.company.Pieces.Piece;
 import com.company.Tribes.Tribe;
+import com.company.colors;
 
 import javax.swing.*;
 import java.awt.*;
@@ -168,7 +169,7 @@ public class LogicEngine {
      * @param pieceType: Enum declared in Pieces. Corresponds to each of the 3 possible piece types + city
      * @return Image object with the image obtained for the specified piece
      */
-    public Image getIconForPiece(Piece.colors pieceColor, Piece.types pieceType){
+    public Image getIconForPiece(colors pieceColor, Piece.types pieceType) throws Exception {
         String pathName = "";
 
         switch (pieceColor) {
@@ -201,8 +202,14 @@ public class LogicEngine {
                 break;
         }
 
+        //TODO: Check if iconUrl is null, to throw a helpful exception.
         URL iconUrl = getClass().getClassLoader().getResource("com/company/images/" + pathName);
-        return new ImageIcon(iconUrl).getImage();
+
+        if (iconUrl != null) {
+            return new ImageIcon(iconUrl).getImage();
+        } else {
+            throw new Exception("The icon for the " + pathName + " piece, was not found");
+        }
 
     }
 

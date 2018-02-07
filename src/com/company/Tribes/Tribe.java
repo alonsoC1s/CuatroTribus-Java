@@ -1,28 +1,28 @@
 package com.company.Tribes;
 
-import com.company.GUI.Board;
 import com.company.GUI.BoardSquare;
 import com.company.GUI.ReservesSquare;
 import com.company.Logic.LogicEngine;
 import com.company.Pieces.GuiPiece;
 import com.company.Pieces.Piece;
+import com.company.colors;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Tribe {
-    protected Piece.colors myColor;
+public class Tribe {
+    protected colors myColor;
     protected int PacsAvailable;
-    protected List<GuiPiece> tribalArmy = new ArrayList<>();
-    List<BoardSquare> dominantTerritory; //Is this information really necessary???
-    Board gameBoard;
-    protected LogicEngine logicEngine = new LogicEngine();
-    private ReservesSquare reserves = new ReservesSquare(this);
+    protected List<GuiPiece> tribalArmy;
+    List<BoardSquare> dominantTerritory; //Is this information really necessary??? FIXME
+
+    protected LogicEngine logicEngine;
+    private ReservesSquare reserves;
 
 
     //TODO: Cities are missing
-    //TODO: List of squares dominated by tribe still unimplemented.
+    //TODO: List of squares dominated by tribe still unimplemented. (Unecessary maybe)
 
     /**
      * Constructor. When called, a new tribe of color x is created.
@@ -30,37 +30,40 @@ public abstract class Tribe {
      * The int arrays are the specific powers each piece of each category must have. These are defined by game rules
      * @param color
      */
-    public Tribe(Piece.colors color){
+    public Tribe(colors color, LogicEngine logicEngine) throws Exception {
         this.myColor = color;
+        this.tribalArmy = new ArrayList<>();
+        this.logicEngine = logicEngine;
+        this.reserves = new ReservesSquare(this);
 
-        switch (color){
+        switch (color) {
             case WHITE:
-                int[] w_infantriesPowerList = {1,1,1,1,1, 2,2,2,2, 3,3, 5,5 };
-                int[] w_horsesPowerList = {5,5,5,  3,3};
-                int[] w_artillieryPowersList = {3,3, 2};
+                int[] w_infantriesPowerList = {1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 5, 5};
+                int[] w_horsesPowerList = {5, 5, 5, 3, 3};
+                int[] w_artillieryPowersList = {3, 3, 2};
 
-                this.tribalArmy.addAll(this.createArmy(Piece.colors.WHITE,w_infantriesPowerList,w_horsesPowerList,w_artillieryPowersList));
+                this.tribalArmy.addAll(this.createArmy(colors.WHITE, w_infantriesPowerList, w_horsesPowerList, w_artillieryPowersList));
                 break;
             case GREEN:
-                int[] g_infantriesPowerList = {1,1,1,1,1, 2,2,2,2,2,2, 3,3, 4,4, 5,5 };
-                int[] g_horsesPowerList = {5, 4,4, 3};
-                int[] g_artillieryPowersList = {3,3, 2,2};
+                int[] g_infantriesPowerList = {1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 4, 4, 5, 5};
+                int[] g_horsesPowerList = {5, 4, 4, 3};
+                int[] g_artillieryPowersList = {3, 3, 2, 2};
 
-                this.tribalArmy.addAll(this.createArmy(Piece.colors.GREEN,g_infantriesPowerList,g_horsesPowerList,g_artillieryPowersList));
+                this.tribalArmy.addAll(this.createArmy(colors.GREEN, g_infantriesPowerList, g_horsesPowerList, g_artillieryPowersList));
                 break;
             case BLUE:
-                int[] b_infantriesPowerList = {1,1,1,1, 2,2,2,2, 3,3, 4,4,4, 5,5,5};
-                int[] b_horsesPowersList = {5,5, 4,4, 3};
-                int[] b_artillieriesPowersList = {3,3,3, 2};
+                int[] b_infantriesPowerList = {1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 4, 4, 4, 5, 5, 5};
+                int[] b_horsesPowersList = {5, 5, 4, 4, 3};
+                int[] b_artillieriesPowersList = {3, 3, 3, 2};
 
-                this.tribalArmy.addAll(this.createArmy(Piece.colors.BLUE,b_infantriesPowerList,b_horsesPowersList,b_artillieriesPowersList));
+                this.tribalArmy.addAll(this.createArmy(colors.BLUE, b_infantriesPowerList, b_horsesPowersList, b_artillieriesPowersList));
                 break;
             case RED:
-                int[] r_infantriesPowerList = {1,1,1,1,1, 2,2,2,2, 3,3,3, 4,4,4,  5,5,5 };
-                int[] r_horsesPowerList = {5,5,5,  3,3};
-                int[] r_artillieryPowerList = {3,3, 2};
+                int[] r_infantriesPowerList = {1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5};
+                int[] r_horsesPowerList = {5, 5, 5, 3, 3};
+                int[] r_artillieryPowerList = {3, 3, 2};
 
-                this.tribalArmy.addAll(this.createArmy(Piece.colors.RED,r_infantriesPowerList,r_horsesPowerList,r_artillieryPowerList));
+                this.tribalArmy.addAll(this.createArmy(colors.RED, r_infantriesPowerList, r_horsesPowerList, r_artillieryPowerList));
                 break;
         }
 
@@ -76,9 +79,10 @@ public abstract class Tribe {
      * @param artillieryPowerList: Array of integers that specifies how many artilliery pieces are to be created, and their designated powers
      * @return List of pieces that are to be added to the tribal army
      */
-    private List<GuiPiece> createArmy(Piece.colors color, int[] infrantryPowerList, int[] horsePowerList, int[] artillieryPowerList){
+    private List<GuiPiece> createArmy(colors color, int[] infrantryPowerList, int[] horsePowerList, int[] artillieryPowerList) throws Exception {
         //Fetching piece icons
         List<GuiPiece> newArmy = new ArrayList<>();
+
         Image infantryIcon = this.logicEngine.getIconForPiece(color, Piece.types.INFANTRY);
         Image horseIcon = this.logicEngine.getIconForPiece(color, Piece.types.HORSE);
         Image artillieryIcon = this.logicEngine.getIconForPiece(color, Piece.types.ARTILLERY);
@@ -105,7 +109,7 @@ public abstract class Tribe {
      * Method used to count how many cities are dominated, and collect one PAC for each
      * Uses the Logic Engine to count cities.
      */
-    private void collectPACs(){
+    protected void collectPACs(){
         this.PacsAvailable = LogicEngine.countCitiesDominated(this);
     }
 
@@ -121,7 +125,7 @@ public abstract class Tribe {
 
     //Getters and setters
 
-    public Piece.colors getColor() {
+    public colors getColor() {
         return myColor;
     }
 

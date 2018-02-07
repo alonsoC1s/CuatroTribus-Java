@@ -3,6 +3,7 @@ package com.company.GUI;
 import com.company.Logic.LogicEngine;
 import com.company.Pieces.GuiPiece;
 import com.company.Pieces.Piece;
+import com.company.colors;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 public class BoardSquare {
 
     public List<GuiPiece> pieces = new ArrayList<>();
-    public Piece.colors dominantColor; //This is to be determined by the color of the city in this square.
+    public colors dominantColor; //This is to be determined by the color of the city in this square.
     public boolean hasCity;
 
     public int row;
@@ -48,7 +49,7 @@ public class BoardSquare {
      * NOTE: THIS IS THE CORRECT METHOD TO BE USED DURING GAMEPLAY AS IT IS EQUIPPED TO HANDLE COLLISIONS.
      * @param newPieces: List of pieces that are being moved to this square
      */
-    public void addPiecesToSquare(List<GuiPiece> newPieces, Piece.colors actingColor){
+    public void addPiecesToSquare(List<GuiPiece> newPieces, colors actingColor){
         System.out.println("Some new pieces were added to square " + this.row + "," + this.col);
 
         //First, get the square that previously contained them, and remove pieces
