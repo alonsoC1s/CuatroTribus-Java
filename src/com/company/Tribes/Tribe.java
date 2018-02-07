@@ -109,23 +109,13 @@ public abstract class Tribe {
         this.PacsAvailable = LogicEngine.countCitiesDominated(this);
     }
 
+    /**
+     * Method to place pieces on reserve. This is only done once, when the game starts.
+     * The rest of the time ReserveSquare queries the list of pieces to check if they are deployed.
+     * Visual accomodation of pieces is handled by the ReserveSquare.
+     */
     private void placePiecesOnReserveArea(){
-        int index = 0;
-        int index2 = 1;
-        for (GuiPiece piece : tribalArmy){
-            piece.setxPos(620+index2);
-            piece.setyPos(index*80);
-
-            index++;
-
-            if (index % 8 == 0){
-                index2+= 90;
-                index = 0;
-            }
-        }
-
         this.reserves.addReserves(this.tribalArmy);
-
     }
 
 
@@ -137,5 +127,9 @@ public abstract class Tribe {
 
     public ReservesSquare getReservesSquare(){
         return this.reserves;
+    }
+
+    public List<GuiPiece> getTribalArmy() {
+        return tribalArmy;
     }
 }

@@ -20,7 +20,6 @@ public class GuiPiece extends Piece implements Comparable<GuiPiece>{
         this.column = column;
         this.icon = icon;
 
-        //TODO: Ask if piece is deployed. If not deployed render outside of board and put into reserves box
         this.centerPieceToSquare();
 
         this.iconHeight = icon.getHeight(null);
@@ -102,6 +101,8 @@ public class GuiPiece extends Piece implements Comparable<GuiPiece>{
 
     public void killPiece(){
         this.isDeployed = false;
+        this.xPos = 1000;
+        this.yPos = 1000;
         //TODO: Draw piece outside board, and inside deploying area.
     }
 

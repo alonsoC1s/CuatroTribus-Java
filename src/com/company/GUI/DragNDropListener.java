@@ -42,8 +42,6 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
         int clickX = e.getX();
         int clickY = e.getY();
 
-        //TODO: Move the piece translation funcitonality to a separete function, and call said function on mousePressed and on Mouse Released
-
 
         if (reservesClicked(clickX)){
 
@@ -56,7 +54,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
         } else { //Reserves were not clicked.
             this.clickedSquare = getClickedSquare(clickX,clickY);
 
-            if (!troopsAreBeingMobilized) {
+            if (!troopsAreBeingMobilized) { // i.e this is the user trying to select pieces to move
 
                 //Check if the user has power over the clicked square
                 if (clickedSquare.dominantColor == gameBoard.tribeInTurn.getColor() && !clickedSquare.isEmpty()) {
@@ -64,7 +62,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
 
                     //Creating panel to display options, and new list to contain radio buttons
                     final JPanel panel = new JPanel();
-                    int listSize = piecesOnSquare.size();
+                    int listSize = this.piecesOnSquare.size();
                     JRadioButton[] pieceOptions = new JRadioButton[listSize];
                     int i = 0;
 
@@ -90,8 +88,6 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
                     if (!piecesOnTheMove.isEmpty())
                         troopsAreBeingMobilized = true;
 
-                    //Todo: Cleanup all lists used.
-
                 } else { // Square clicked by user is outside of his control
                     System.out.println("You have no power over this city");
                     return;
@@ -104,10 +100,6 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
             }
 
         }
-    }
-
-    private boolean reservesClicked(int xCoord){
-        return xCoord > 605;
     }
 
     /**
@@ -130,54 +122,26 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
     }
 
     /**
-     * Function to check what square was pressed by checking through matrix
-     * @param clickX: x coord of the click
-     * @param clickY: y coord of the click
+     * Called when the user is dragging pieces from staging areea into board
+     * @param e: mouse event
      */
-    public BoardSquare getClickedSquare(int clickX, int clickY){
-        BoardSquare clickedSqr = null;
-
-        for(int row=0; row<6; row++){
-            for(int col=0; col<6; col++){
-                if (boardMatrix[row][col].isClicked(clickX,clickY)){
-                    clickedSqr = boardMatrix[row][col];
-                    System.out.println("Square on " + clickedSqr.row + "," + clickedSqr.col + " was clicked");
-                }
-            }
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        if (deployingTroops){
+            pieceOnDeployment.xPos = e.getX();
+            pieceOnDeployment.yPos = e.getY();
+            this.gameBoard.repaint();
         }
-        return clickedSqr;
     }
 
-    public GuiPiece getClickedPiece(int clickX, int clickY){
-        GuiPiece selectedPiece = null ;
-        for (GuiPiece piece : this.currentPlayerReserves.pieces){
-            if (piece.isClicked(clickX,clickY)){
-                selectedPiece = piece;
-            }
-        }
-        return selectedPiece;
-    }
-
-
-    /*
-    Unused functions. Implemented to fulfill interface.
-    */
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
-
+    /**
+     * Method called when the mouse is released after being dragged
+     * In charge of checking which board square was clicked,
+     * and calling the addPieces method equipped to handle collisions
+     * @param e: mouse event
+     */
     @Override
     public void mouseReleased(MouseEvent e) {
-
         if (deployingTroops) {
             this.clickedSquare = getClickedSquare(e.getX(),e.getY());
 
@@ -196,14 +160,61 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
         }
     }
 
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        if (deployingTroops){
-            pieceOnDeployment.xPos = e.getX();
-            pieceOnDeployment.yPos = e.getY();
-            this.gameBoard.repaint();
+    /**
+     * Function to check what square was pressed by checking through matrix
+     * @param clickX: x coord of the click
+     * @param clickY: y coord of the click
+     */
+    public BoardSquare getClickedSquare(int clickX, int clickY){
+        BoardSquare clickedSqr = null;
+
+        for(int row=0; row<6; row++){
+            for(int col=0; col<6; col++){
+                if (boardMatrix[row][col].isClicked(clickX,clickY)){
+                    clickedSqr = boardMatrix[row][col];
+                    System.out.println("Square on " + clickedSqr.row + "," + clickedSqr.col + " was clicked");
+                }
+            }
         }
+        return clickedSqr;
     }
 
+    /**
+     * Method to facilitate checking which specific piece was clicked within staging area
+     * @param clickX: X coordinate click
+     * @param clickY: Y coordinate click
+     * @return GuiPiece that was clicked. Designed this way so null can be detected.
+     */
+    public GuiPiece getClickedPiece(int clickX, int clickY){
+        GuiPiece selectedPiece = null ;
+        for (GuiPiece piece : this.currentPlayerReserves.pieces){
+            if (piece.isClicked(clickX,clickY)){
+                selectedPiece = piece;
+            }
+        }
+        return selectedPiece;
+    }
+
+
+    private boolean reservesClicked(int xCoord){
+        return xCoord > 605;
+    }
+
+
+    /*
+    Unused functions. Implemented to fulfill interface.
+    */
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 
 }

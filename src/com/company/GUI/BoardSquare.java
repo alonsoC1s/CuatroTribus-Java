@@ -41,6 +41,8 @@ public class BoardSquare {
         this.determineDominantColor();
     }
 
+
+    //TODO: Clone method to accept a single GuiPiece instead of a List, and bypass checking previous squares.
     /**
      * Method used during gameplay when different players movilze army
      * NOTE: THIS IS THE CORRECT METHOD TO BE USED DURING GAMEPLAY AS IT IS EQUIPPED TO HANDLE COLLISIONS.
@@ -49,7 +51,8 @@ public class BoardSquare {
     public void addPiecesToSquare(List<GuiPiece> newPieces, Piece.colors actingColor){
         System.out.println("Some new pieces were added to square " + this.row + "," + this.col);
 
-        //First, get the square that previously contained them, and remove pieces.
+        //First, get the square that previously contained them, and remove pieces
+
         for (GuiPiece piece: newPieces){
             int prevCol = piece.getColumn();
             int prevRow = piece.getRow();
@@ -57,7 +60,7 @@ public class BoardSquare {
             Board.boardMatrix[prevRow][prevCol].removePieceFromSquare(piece);
         }
 
-        if (actingColor != this.dominantColor && this.dominantColor != null){
+        if (actingColor != this.dominantColor && this.dominantColor != null){ //Collision detected
             List<GuiPiece> survivingPieces = LogicEngine.resolveBattle(this.pieces,newPieces);
 
             if (!survivingPieces.isEmpty()) {

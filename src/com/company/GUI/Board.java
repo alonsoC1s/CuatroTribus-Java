@@ -3,13 +3,12 @@ package com.company.GUI;
 import com.company.Main;
 import com.company.Pieces.GuiPiece;
 import com.company.Pieces.Piece;
+import com.company.Player;
 import com.company.Tribes.Tribe;
 
 import javax.swing.*;
 import java.awt.*;
 
-
-//FixMe: Missing the turn switching functionality. Currently, white is the only playing color;
 
 public class Board extends JPanel{
     private JFrame fram;
@@ -91,6 +90,14 @@ public class Board extends JPanel{
 
         this.tribeInTurn = Main.currentPlayer.playerTribe;
 
+    }
+
+    /**
+     * Method called by Main when the next turn is due.
+     * @param currentWorkingPlayer
+     */
+    public void updateTurnStatus(Player currentWorkingPlayer){
+        this.tribeInTurn = currentWorkingPlayer.playerTribe;
     }
 
 

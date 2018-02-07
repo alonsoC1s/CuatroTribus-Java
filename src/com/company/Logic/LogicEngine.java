@@ -41,9 +41,14 @@ public class LogicEngine {
             if (piece.getType().equals(Piece.types.ARTILLERY)){
                 //If artilliery found, remove it, along with three lowermost troops on the attacker´s ranks
                 int artillieryIndex = defendingPieces.indexOf(piece);
+
+                //TODO: Kill the piece
+
+                defendingPieces.get(artillieryIndex).killPiece();
                 defendingPieces.remove(artillieryIndex);
 
                 for(int k=0; k<3; k++){
+                    attackingPieces.get(k).killPiece();
                     attackingPieces.remove(k);
                 }
 
@@ -58,16 +63,20 @@ public class LogicEngine {
         //Check which party won
         if (sumAttackers - sumDefenders < 0){ // Defenders win
             for (int i=0; i<attackingPieces.size(); i++){
-                attackingPieces.remove(i);
-                defendingPieces.remove(i);
+
+                eliminatePiece(attackingPieces,i);
+
+                eliminatePiece(defendingPieces,i);
 
                 //Return whatever pieces are left
                 winnerPieces = defendingPieces;
             }
         } else if (sumAttackers - sumDefenders > 0){ // Attackers win
             for (int i=0; i<defendingPieces.size(); i++){
-                attackingPieces.remove(i);
-                defendingPieces.remove(i);
+
+                eliminatePiece(attackingPieces,i);
+
+                eliminatePiece(defendingPieces,i);
 
                 //Return whatever pieces are left
                 winnerPieces = attackingPieces;
@@ -79,6 +88,16 @@ public class LogicEngine {
 
 
         return winnerPieces;
+    }
+
+    /**
+     * Shorthand function to kill and eliminate piece from a list
+     * @param pieceList: List that contains the piece
+     * @param pieceIndex: Piece that is to be killed and un-deployed
+     */
+    private static void eliminatePiece(List<GuiPiece> pieceList, int pieceIndex){
+        pieceList.get(pieceIndex).killPiece();
+        pieceList.remove(pieceIndex);
     }
 
     /**
