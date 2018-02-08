@@ -71,6 +71,8 @@ public class BoardSquare {
                 }
 
                 pieces.addAll(survivingPieces);
+            }else {
+                System.out.println("Battle left no surviving pieces");
             }
         }else{ // No battle was detected
             for (GuiPiece piece: newPieces){
@@ -106,13 +108,13 @@ public class BoardSquare {
                 }
 
                 pieces.addAll(survivorPieces);
+            } else {
+                System.out.println("Battle left no survivors");
             }
         }else{ // No battle was detected
-            for (GuiPiece piece: newPieceAsList){
-                piece.setRowCol(this.row,this.col);
-            }
+            newPiece.setRowCol(this.row,this.col);
 
-            pieces.addAll(newPieceAsList);
+            pieces.add(newPiece);
         }
 
         this.determineDominantColor();

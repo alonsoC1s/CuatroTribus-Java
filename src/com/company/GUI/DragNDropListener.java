@@ -164,7 +164,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
                 pieceOnDeployment = null;
 
             }else { //Player cannot afford this piece
-                System.out.println("No tienes suficiente dinero para realizar esta compra ");
+                System.out.println("You can´t afford this piece");
                 Main.currentPlayer.playerTribe.getReservesSquare().returnPieceToReserves(pieceOnDeployment);
             }
             gameBoard.repaint();

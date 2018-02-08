@@ -70,6 +70,7 @@ public class Board extends JPanel{
         //FIXME: Window is drawn slightly smaller than the actual size of background image.
         fram = new JFrame();
         fram.setVisible(true);
+        fram.setBackground(new Color(255,244,198));
         fram.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fram.add(this);
         fram.setSize(imgBackground.getWidth(null)+450,imgBackground.getHeight(null)+50);

@@ -38,6 +38,9 @@ public class ReservesSquare {
         sortReservesOnSquare();
     }
 
+    /**
+     * Method to set the x,y coordinates of the pieces on this.list to be sorted visually in the reserves area.
+     */
     private void sortReservesOnSquare() {
         int index = 0;
         int index2 = 1;
@@ -54,9 +57,15 @@ public class ReservesSquare {
         }
     }
 
+    /**
+     * Shorthand function to remove piece from this.list of pieces, and set piece status to deployed on a single line.
+     * @param piece
+     */
     public void removeAndDeploy(GuiPiece piece){
         this.pieces.remove(piece);
         piece.isDeployed = true;
+
+        sortReservesOnSquare();
     }
 
 }

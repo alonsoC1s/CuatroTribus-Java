@@ -6,13 +6,9 @@ import com.company.Logic.LogicEngine;
 import com.company.Pieces.GuiPiece;
 import com.company.Pieces.Piece;
 import com.company.colors;
-import sun.rmi.runtime.Log;
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.company.Pieces.Piece.types.HORSE;
 
 public class Tribe {
     protected colors myColor;
@@ -20,7 +16,7 @@ public class Tribe {
     protected List<GuiPiece> tribalArmy;
     List<BoardSquare> dominantTerritory; //Is this information really necessary??? FIXME
 
-    protected LogicEngine logicEngine;
+    protected LogicEngine logicEngine; //Might seem weird, but local reference is needed to get icon piece
     private ReservesSquare reserves;
 
 
@@ -71,7 +67,6 @@ public class Tribe {
         }
 
         placePiecesOnReserveArea();
-
     }
 
     /**
@@ -87,7 +82,7 @@ public class Tribe {
         List<GuiPiece> newArmy = new ArrayList<>();
 
         Image infantryIcon = this.logicEngine.getIconForPiece(color, Piece.types.INFANTRY);
-        Image horseIcon = this.logicEngine.getIconForPiece(color, HORSE);
+        Image horseIcon = this.logicEngine.getIconForPiece(color, Piece.types.HORSE);
         Image artillieryIcon = this.logicEngine.getIconForPiece(color, Piece.types.ARTILLERY);
 
         //Creating infrantries.
@@ -97,7 +92,7 @@ public class Tribe {
 
         //Creating horses
         for (int aHorsePowerList : horsePowerList) {
-            newArmy.add(new GuiPiece(color, HORSE, aHorsePowerList, false, horseIcon));
+            newArmy.add(new GuiPiece(color, Piece.types.HORSE, aHorsePowerList, false, horseIcon));
         }
 
         //Creating artillieries
@@ -136,6 +131,10 @@ public class Tribe {
         return canBuyIt;
     }
 
+    /**
+     * Game logic to charge the user to buy pieces, and call to the reserveSquare to change deployment status on the piece.
+     * @param piece
+     */
     public void buyThisPiece(GuiPiece piece){
 
         int piecePrice = piece.getPiecePrice();
