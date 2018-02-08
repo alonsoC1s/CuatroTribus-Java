@@ -6,6 +6,7 @@ import com.company.Pieces.Piece;
 import com.company.colors;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class BoardSquare {
@@ -81,6 +82,42 @@ public class BoardSquare {
 
         this.determineDominantColor();
     }
+
+    /**
+     * Method used during gameplay when a user deploys troops
+     * NOTE: THIS IS THE CORRECT METHOD TO BE USED DURING GAMEPLAY AS IT IS EQUIPPED TO HANDLE COLLISIONS.
+     * BTW no need to change deployment status
+     * @param newPiece: Single Piece to be deployed
+     */
+    public void deployPiece(GuiPiece newPiece, colors actingColor){
+        System.out.println("User just bought a " + newPiece + " and deployed to " + this.row + "," + this.col);
+
+        //Wrapping piece inside list to send to battle resolving logic;
+        List<GuiPiece> newPieceAsList = new ArrayList<>();
+        newPieceAsList.add(newPiece);
+
+
+        if (actingColor != this.dominantColor && this.dominantColor != null){ //Collision detected
+            List<GuiPiece> survivorPieces = LogicEngine.resolveBattle(this.pieces, newPieceAsList);
+
+            if (!survivorPieces.isEmpty()) {
+                for (GuiPiece piece : survivorPieces) {
+                    piece.setRowCol(this.row, this.col);
+                }
+
+                pieces.addAll(survivorPieces);
+            }
+        }else{ // No battle was detected
+            for (GuiPiece piece: newPieceAsList){
+                piece.setRowCol(this.row,this.col);
+            }
+
+            pieces.addAll(newPieceAsList);
+        }
+
+        this.determineDominantColor();
+    }
+
 
     public void removePieceFromSquare(GuiPiece newPiece){
         pieces.remove(newPiece);

@@ -43,7 +43,6 @@ public class LogicEngine {
                 //If artilliery found, remove it, along with three lowermost troops on the attacker´s ranks
                 int artillieryIndex = defendingPieces.indexOf(piece);
 
-                //TODO: Kill the piece
 
                 defendingPieces.get(artillieryIndex).killPiece();
                 defendingPieces.remove(artillieryIndex);
@@ -202,7 +201,6 @@ public class LogicEngine {
                 break;
         }
 
-        //TODO: Check if iconUrl is null, to throw a helpful exception.
         URL iconUrl = getClass().getClassLoader().getResource("com/company/images/" + pathName);
 
         if (iconUrl != null) {

@@ -23,6 +23,11 @@ public class ReservesSquare {
         sortReservesOnSquare();
     }
 
+    public void returnPieceToReserves(GuiPiece newPieces ){
+        this.pieces.add(newPieces);
+        sortReservesOnSquare();
+    }
+
     public void recalculateReserves(){
         for(GuiPiece piece : ownerTribe.getTribalArmy()){
             if (!piece.isDeployed){

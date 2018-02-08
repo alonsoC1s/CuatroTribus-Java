@@ -156,14 +156,16 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
                 //Call the method for buying pieces. Changes deployment status and charges user etc...
                 Main.currentPlayer.playerTribe.buyThisPiece(pieceOnDeployment);
 
-                List<GuiPiece> pieceList = new ArrayList<>();
-                pieceList.add(pieceOnDeployment); //Fixme: Not ideal to create list of one element, but the method equiped to handle collisions only receives lists
-
                 //TODO: If releaseSqr null, check if dropped back to reserves (not possible under rules)
 
-                releaseSqr.addPiecesToSquare(pieceList, Main.currentPlayer.playerTribe.getColor());
+                releaseSqr.deployPiece(pieceOnDeployment, Main.currentPlayer.playerTribe.getColor());
+
                 this.deployingTroops = false;
                 pieceOnDeployment = null;
+
+            }else { //Player cannot afford this piece
+                System.out.println("No tienes suficiente dinero para realizar esta compra ");
+                Main.currentPlayer.playerTribe.getReservesSquare().returnPieceToReserves(pieceOnDeployment);
             }
             gameBoard.repaint();
         }
