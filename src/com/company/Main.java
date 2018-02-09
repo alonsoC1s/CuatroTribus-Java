@@ -4,13 +4,8 @@ import com.company.GUI.Board;
 import com.company.Logic.LogicEngine;
 import com.company.Tribes.Tribe;
 
-import javax.swing.*;
-import java.awt.*;
-import java.net.MalformedURLException;
-import java.net.URL;
-
 public class Main {
-    static Board mainBoard;
+    public static Board mainBoard;
     public static Player currentPlayer;
     public static LogicEngine gameLogicEngine;
 
@@ -43,7 +38,7 @@ public class Main {
         mainBoard = new Board();
 
 
-        jugador1.beginTurn();
+        jugador1.beginSetupRound();
 
 
     }

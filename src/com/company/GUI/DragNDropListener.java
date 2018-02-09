@@ -96,7 +96,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
                     return;
                 }
             } else { //Troops are not being mobilized
-                this.clickedSquare.addPiecesToSquare(piecesOnTheMove, gameBoard.tribeInTurn.getColor());
+                this.clickedSquare.addPiecesToSquare(piecesOnTheMove, Main.currentPlayer.playerTribe.getColor());
                 this.troopsAreBeingMobilized = false;
                 piecesOnTheMove = new ArrayList<>();
                 gameBoard.repaint();
@@ -137,6 +137,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
         }
     }
 
+    //TODO: Fix mouseReleased to allow for free piece moving iff user is setting up
     /**
      * Method called when the mouse is released after being dragged
      * In charge of checking which board square was clicked,
@@ -145,10 +146,12 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
      */
     @Override
     public void mouseReleased(MouseEvent e) {
-        if (deployingTroops) {
+        //Query squares to find which was clicked
+        BoardSquare releaseSqr = this.getClickedSquare(e.getX(), e.getY());
+
+        if (deployingTroops && !Main.currentPlayer.playerTribe.isSettingUp) {
             this.clickedSquare = getClickedSquare(e.getX(),e.getY());
 
-            BoardSquare releaseSqr = this.getClickedSquare(e.getX(), e.getY());
 
             //Check if the user can buy the piece. If so, the purchase is carried out by Tribe class
             if (Main.currentPlayer.playerTribe.canBuyThisPiece(pieceOnDeployment)) {
@@ -158,6 +161,7 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
 
                 //TODO: If releaseSqr null, check if dropped back to reserves (not possible under rules)
 
+                //Prompt square to accept piece
                 releaseSqr.deployPiece(pieceOnDeployment, Main.currentPlayer.playerTribe.getColor());
 
                 this.deployingTroops = false;
@@ -168,6 +172,17 @@ public class DragNDropListener implements MouseMotionListener, MouseListener{
                 Main.currentPlayer.playerTribe.getReservesSquare().returnPieceToReserves(pieceOnDeployment);
             }
             gameBoard.repaint();
+        } else  if (deployingTroops && Main.currentPlayer.playerTribe.isSettingUp){ // User is setting up. Dont charge for pieces
+
+            //Take the piece out of reserves
+            Main.currentPlayer.playerTribe.setUpThisPiece(pieceOnDeployment);
+
+            //Prompt square to accept piece
+            releaseSqr.deployPiece(pieceOnDeployment, Main.currentPlayer.playerTribe.getColor());
+
+            //Adjust game dragging logic
+            this.deployingTroops = false;
+            pieceOnDeployment = null;
         }
     }
 

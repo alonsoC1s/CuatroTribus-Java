@@ -11,7 +11,6 @@ import java.awt.*;
 
 
 public class Board extends JPanel{
-    private JFrame fram;
 
     public Tribe tribeInTurn;
     private Image imgBackground;
@@ -67,8 +66,8 @@ public class Board extends JPanel{
 
 
         //Create application frame
-        //FIXME: Window is drawn slightly smaller than the actual size of background image.
-        fram = new JFrame();
+        JFrame fram = new JFrame();
+
         fram.setVisible(true);
         fram.setBackground(new Color(255,244,198));
         fram.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -95,7 +94,7 @@ public class Board extends JPanel{
 
     /**
      * Method called by Main when the next turn is due.
-     * @param currentWorkingPlayer
+     * @param currentWorkingPlayer :
      */
     public void updateTurnStatus(Player currentWorkingPlayer){
         this.tribeInTurn = currentWorkingPlayer.playerTribe;

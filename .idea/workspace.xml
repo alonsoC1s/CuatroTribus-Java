@@ -7,15 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="081e717f-4ffa-419c-aa15-9809bf98f6f9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/GUI/BoardSquare.class" afterPath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/GUI/BoardSquare.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/GUI/DragNDropListener.class" afterPath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/GUI/DragNDropListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/Tribes/Tribe$1.class" afterPath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/Tribes/Tribe$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/Tribes/Tribe.class" afterPath="$PROJECT_DIR$/out/production/ProyectoCuatroTribus/com/company/Tribes/Tribe.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/GUI/Board.java" afterPath="$PROJECT_DIR$/src/com/company/GUI/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java" afterPath="$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java" afterPath="$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/GUI/ReservesSquare.java" afterPath="$PROJECT_DIR$/src/com/company/GUI/ReservesSquare.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Main.java" afterPath="$PROJECT_DIR$/src/com/company/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Player.java" afterPath="$PROJECT_DIR$/src/com/company/Player.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Tribes/Tribe.java" afterPath="$PROJECT_DIR$/src/com/company/Tribes/Tribe.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -37,21 +33,84 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BoardSquare.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="129">
+              <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#addPieceToSquare#0;class#BoardSquare#0" expanded="false" />
+                <element signature="method#removePieceFromSquare#0;class#BoardSquare#0" expanded="false" />
+                <element signature="method#determineDominantColor#0;class#BoardSquare#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GuiPiece.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Pieces/GuiPiece.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#GuiPiece#0;class#GuiPiece#0" expanded="false" />
+                <element signature="method#GuiPiece#1;class#GuiPiece#0" expanded="false" />
+                <element signature="method#toString#0;class#GuiPiece#0" expanded="false" />
+                <element signature="method#killPiece#0;class#GuiPiece#0" expanded="false" />
+                <element signature="method#setxPos#0;class#GuiPiece#0" expanded="false" />
+                <element signature="method#compareTo#0;class#GuiPiece#0" expanded="false" />
+                <element signature="method#isClicked#0;class#GuiPiece#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReservesSquare.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/GUI/ReservesSquare.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="139">
+              <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/GUI/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="72" column="48" lean-forward="false" selection-start-line="72" selection-start-column="48" selection-end-line="72" selection-end-column="48" />
+            <state relative-caret-position="168">
+              <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DragNDropListener.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Tribe.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Tribes/Tribe.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="124" column="0" lean-forward="true" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;method#Tribe#0;class#Tribe#0" expanded="false" />
+                <element signature="method#createArmy#0;class#Tribe#0" expanded="false" />
+                <element signature="method#canBuyThisPiece#0;class#Tribe#0" expanded="false" />
+                <element signature="method#buyThisPiece#0;class#Tribe#0" expanded="false" />
+                <element signature="method#setUpThisPiece#0;class#Tribe#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DragNDropListener.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="166" column="63" lean-forward="false" selection-start-line="166" selection-start-column="63" selection-end-line="166" selection-end-column="63" />
+            <state relative-caret-position="265">
+              <caret line="103" column="0" lean-forward="true" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#mouseMoved#0;class#DragNDropListener#0" expanded="false" />
@@ -68,8 +127,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state relative-caret-position="520">
+              <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,10 +136,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="86">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="LogicEngine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Logic/LogicEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
+            <state relative-caret-position="413">
               <caret line="223" column="0" lean-forward="false" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
               <folding>
                 <element signature="docComment;method#resolveBattle#0;class#LogicEngine#0" expanded="false" />
@@ -137,15 +206,15 @@
         <option value="$PROJECT_DIR$/src/com/company/colors.java" />
         <option value="$PROJECT_DIR$/src/com/company/Pieces/GuiPiece.java" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/com/company/Player.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Main.java" />
         <option value="$PROJECT_DIR$/src/com/company/Pieces/Piece.java" />
         <option value="$PROJECT_DIR$/src/com/company/Logic/LogicEngine.java" />
-        <option value="$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java" />
-        <option value="$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Tribes/Tribe.java" />
-        <option value="$PROJECT_DIR$/src/com/company/GUI/ReservesSquare.java" />
         <option value="$PROJECT_DIR$/src/com/company/GUI/Board.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Tribes/Tribe.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Player.java" />
+        <option value="$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java" />
+        <option value="$PROJECT_DIR$/src/com/company/GUI/ReservesSquare.java" />
+        <option value="$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java" />
       </list>
     </option>
   </component>
@@ -370,7 +439,7 @@
       <workItem from="1517930394590" duration="15323000" />
       <workItem from="1517962518296" duration="9315000" />
       <workItem from="1518030797277" duration="3484000" />
-      <workItem from="1518102598509" duration="3846000" />
+      <workItem from="1518102598509" duration="8091000" />
     </task>
     <task id="LOCAL-00001" summary="Created the piece creation and addition methods">
       <created>1512168072039</created>
@@ -390,7 +459,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73479000" />
+    <option name="totallyTimeSpent" value="77724000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -422,7 +491,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13161659" sideWeight="0.49538866" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5666218" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5652759" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13161659" sideWeight="0.5046113" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -487,7 +556,57 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="105" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java</url>
+          <line>104</line>
+          <properties />
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java</url>
+          <line>63</line>
+          <properties />
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java</url>
+          <line>90</line>
+          <properties />
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java</url>
+          <line>91</line>
+          <properties />
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java</url>
+          <line>98</line>
+          <properties />
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java</url>
+          <line>99</line>
+          <properties />
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java</url>
+          <line>100</line>
+          <properties />
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/Player.java</url>
+          <line>25</line>
+          <properties />
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="118" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -757,6 +876,7 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="360">
             <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -770,91 +890,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="166" column="63" lean-forward="false" selection-start-line="166" selection-start-column="63" selection-end-line="166" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#mouseMoved#0;class#DragNDropListener#0" expanded="false" />
-            <element signature="method#getClickedSquare#0;class#DragNDropListener#0" expanded="false" />
-            <element signature="method#getClickedPiece#0;class#DragNDropListener#0" expanded="false" />
-            <element signature="method#mouseClicked#0;class#DragNDropListener#0" expanded="false" />
-            <element signature="method#mouseEntered#0;class#DragNDropListener#0" expanded="false" />
-            <element signature="method#mouseExited#0;class#DragNDropListener#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="951">
-          <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#addPieceToSquare#0;class#BoardSquare#0" expanded="false" />
-            <element signature="method#removePieceFromSquare#0;class#BoardSquare#0" expanded="false" />
-            <element signature="method#determineDominantColor#0;class#BoardSquare#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Pieces/GuiPiece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="91" column="16" lean-forward="false" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GuiPiece#0;class#GuiPiece#0" expanded="false" />
-            <element signature="method#GuiPiece#1;class#GuiPiece#0" expanded="false" />
-            <element signature="method#centerPieceToSquare#0;class#GuiPiece#0" expanded="false" />
-            <element signature="method#toString#0;class#GuiPiece#0" expanded="false" />
-            <element signature="method#killPiece#0;class#GuiPiece#0" expanded="false" />
-            <element signature="method#setxPos#0;class#GuiPiece#0" expanded="false" />
-            <element signature="method#compareTo#0;class#GuiPiece#0" expanded="false" />
-            <element signature="method#isClicked#0;class#GuiPiece#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Tribes/Tribe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="144" column="5" lean-forward="true" selection-start-line="144" selection-start-column="5" selection-end-line="144" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#Tribe#0;class#Tribe#0" expanded="false" />
-            <element signature="docComment;method#createArmy#0;class#Tribe#0" expanded="false" />
-            <element signature="docComment;method#collectPACs#0;class#Tribe#0" expanded="false" />
-            <element signature="docComment;method#placePiecesOnReserveArea#0;class#Tribe#0" expanded="false" />
-            <element signature="e#5431#5432#0" expanded="true" />
-            <element signature="e#5489#5490#0" expanded="true" />
-            <element signature="method#canBuyThisPiece#0;class#Tribe#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Logic/LogicEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
+        <state relative-caret-position="413">
           <caret line="223" column="0" lean-forward="false" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
           <folding>
             <element signature="docComment;method#resolveBattle#0;class#LogicEngine#0" expanded="false" />
@@ -866,23 +904,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/GUI/ReservesSquare.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Tribes/Tribe.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-570">
-          <caret line="25" column="59" lean-forward="true" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
+        <state relative-caret-position="432">
+          <caret line="124" column="0" lean-forward="true" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#355#356#0" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
+            <element signature="docComment;method#Tribe#0;class#Tribe#0" expanded="false" />
+            <element signature="method#createArmy#0;class#Tribe#0" expanded="false" />
+            <element signature="method#canBuyThisPiece#0;class#Tribe#0" expanded="false" />
+            <element signature="method#buyThisPiece#0;class#Tribe#0" expanded="false" />
+            <element signature="method#setUpThisPiece#0;class#Tribe#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/GUI/ReservesSquare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/GUI/BoardSquare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#addPieceToSquare#0;class#BoardSquare#0" expanded="false" />
+            <element signature="method#removePieceFromSquare#0;class#BoardSquare#0" expanded="false" />
+            <element signature="method#determineDominantColor#0;class#BoardSquare#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Pieces/GuiPiece.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#GuiPiece#0;class#GuiPiece#0" expanded="false" />
+            <element signature="method#GuiPiece#1;class#GuiPiece#0" expanded="false" />
+            <element signature="method#toString#0;class#GuiPiece#0" expanded="false" />
+            <element signature="method#killPiece#0;class#GuiPiece#0" expanded="false" />
+            <element signature="method#setxPos#0;class#GuiPiece#0" expanded="false" />
+            <element signature="method#compareTo#0;class#GuiPiece#0" expanded="false" />
+            <element signature="method#isClicked#0;class#GuiPiece#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/GUI/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="72" column="48" lean-forward="false" selection-start-line="72" selection-start-column="48" selection-end-line="72" selection-end-column="48" />
+        <state relative-caret-position="168">
+          <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/GUI/DragNDropListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="103" column="0" lean-forward="true" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#mouseMoved#0;class#DragNDropListener#0" expanded="false" />
+            <element signature="method#getClickedSquare#0;class#DragNDropListener#0" expanded="false" />
+            <element signature="method#getClickedPiece#0;class#DragNDropListener#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#DragNDropListener#0" expanded="false" />
+            <element signature="method#mouseEntered#0;class#DragNDropListener#0" expanded="false" />
+            <element signature="method#mouseExited#0;class#DragNDropListener#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

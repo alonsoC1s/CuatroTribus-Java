@@ -1,5 +1,6 @@
 package com.company.GUI;
 
+import com.company.Main;
 import com.company.Pieces.GuiPiece;
 import com.company.Tribes.Tribe;
 
@@ -55,6 +56,7 @@ public class ReservesSquare {
                 index = 0;
             }
         }
+        Main.mainBoard.repaint();
     }
 
     /**
